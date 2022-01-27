@@ -1,1 +1,15 @@
+.contact-wrapper {
+  padding: 80px;
 
+  .inner-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .example-card {
+      max-width: 400px;
+      .contnt {
+        padding: 20px;
+      }
+    }
+  }
+}
