@@ -1,0 +1,22 @@
+@import "../../../styles.scss";
+
+.login-body {
+  background-color: $primary;
+  height: 95%;
+  padding-top: 5%;
+
+  .pg-header {
+    text-align: center;
+    color: white;
+  }
+
+  .login-card-wrapper {
+    max-width: 500px;
+    min-height: 350px;
+    margin: 150px auto;
+    padding: 50px;
+    .input-fields {
+      width: 100%;
+    }
+  }
+}

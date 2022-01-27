@@ -1,0 +1,62 @@
+<div class="login-body">
+  <div class="mat-display-4 pg-header">Welcome to College Manager</div>
+  <mat-card class="login-card-wrapper">
+    <mat-card-header style="justify-content: center; align-items: center">
+      <mat-card-title>
+        <div class="mat-display-1" style="text-align: center; margin: 0">
+          WELCOME BACK!
+        </div>
+      </mat-card-title>
+      <mat-card-subtitle style="text-align: center"
+        ><a routerLink="/register">
+          <button mat-button color="accent">
+            Or create an account here
+          </button></a
+        >
+      </mat-card-subtitle>
+    </mat-card-header>
+    <form (ngSubmit)="loginSubmit()" [formGroup]="loginForm">
+      <mat-card-content>
+        <mat-form-field appearance="outline" class="input-fields">
+          <mat-label>Email Address</mat-label>
+          <input
+            matInput
+            formControlName="email"
+            placeholder="Enter Email Address"
+            [errorStateMatcher]="matcher"
+          />
+          <mat-error
+            *ngIf="
+              errorHandling('email', 'email') &&
+              !errorHandling('email', 'required')
+            "
+          >
+            Please enter a valid email address.
+          </mat-error>
+          <mat-error *ngIf="errorHandling('email', 'required')">
+            You must provide an email.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="outline" class="input-fields">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            formControlName="password"
+            placeholder="Enter Password"
+            type="password"
+          />
+          <mat-error *ngIf="errorHandling('password', 'required')">
+            You must provide a password.
+          </mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions style="margin-left: 0px">
+        <button type="submit" mat-raised-button color="primary">LOGIN</button>
+        <a routerLink="/contact"
+          ><button mat-button color="accent">FORGOT PASSWORD?</button></a
+        >
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

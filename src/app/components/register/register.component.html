@@ -1,0 +1,128 @@
+<div class="register-body">
+  <div class="mat-display-4 pg-header">Welcome to College Manager</div>
+  <mat-card class="register-card-wrapper">
+    <mat-card-header style="justify-content: center; align-items: center">
+      <mat-card-title>
+        <div class="mat-display-1" style="text-align: center; margin: 0">
+          WELCOME!
+        </div>
+      </mat-card-title>
+      <mat-card-subtitle>
+        Please enter all your details to create an account
+      </mat-card-subtitle>
+    </mat-card-header>
+    <form (ngSubmit)="registerSubmit()" [formGroup]="registerationForm">
+      <mat-card-content>
+        <mat-form-field appearance="outline" class="input-fields">
+          <mat-label>Name</mat-label>
+          <input
+            matInput
+            formControlName="name"
+            placeholder="Enter Full Name"
+          />
+          <mat-error *ngIf="errorHandling('name', 'required')">
+            You must provide an name.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="outline" class="input-fields">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput placeholder="Enter Email" />
+          <mat-error *ngIf="errorHandling('email', 'required')">
+            You must provide an email.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="outline" class="input-fields">
+          <mat-label>Phone Number</mat-label>
+          <input
+            formControlName="phno"
+            matInput
+            placeholder="Enter Phone Number"
+          />
+          <mat-error *ngIf="errorHandling('phno', 'required')">
+            You must provide a phone number.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <div class="fg">
+          <mat-form-field appearance="outline">
+            <mat-label>Gender</mat-label>
+            <mat-select formControlName="gender">
+              <mat-option *ngFor="let gender of genders" [value]="gender.value">
+                {{ gender.viewValue }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="errorHandling('gender', 'required')">
+              You must provide a gender.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Date of Birth</mat-label>
+            <input
+              matInput
+              [matDatepicker]="datepicker"
+              formControlName="dob"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="datepicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #datepicker> </mat-datepicker>
+            <mat-error *ngIf="errorHandling('dob', 'required')">
+              You must provide your Date of Birth.
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <mat-form-field appearance="outline" class="input-fields">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            formControlName="password"
+            placeholder="Enter Password"
+            type="password"
+          />
+          <mat-error *ngIf="errorHandling('password', 'required')">
+            You must provide a password.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="outline" class="input-fields">
+          <mat-label>Confirm Password</mat-label>
+          <input
+            matInput
+            placeholder="Confirm Password"
+            formControlName="confirmPassword"
+            type="password"
+          />
+          <mat-error *ngIf="errorHandling('confirmPassword', 'required')">
+            You must type your password again.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field class="input-fields" appearance="outline">
+          <mat-label>Address</mat-label>
+          <textarea
+            formControlName="address"
+            matInput
+            placeholder="Enter your address"
+          ></textarea>
+          <mat-error *ngIf="errorHandling('address', 'required')">
+            You must provide an address.
+          </mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions class="action-wrapper">
+        <button type="submit" mat-raised-button color="primary">
+          REGISTER
+        </button>
+
+        <a routerLink="/login"
+          ><button mat-button color="accent">
+            ALREADY HAVE AN ACCOUNT? LOG IN HERE
+          </button></a
+        >
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
