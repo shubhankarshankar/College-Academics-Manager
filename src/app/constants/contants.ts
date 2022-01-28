@@ -1,3 +1,17 @@
+export const userDetails = {
+  name: 'Shubhankar Shankar',
+  role: 'Admin',
+  id: 'EE08EC1D-CECA-1E92-9A7D-03533D16F6A2',
+  gender: 'Male',
+  phno: '8982930139',
+  email: 'shubhankar@gmail.com',
+  dob: new Date(2000, 6, 24),
+  address: 'P.O. Box 911, 6932 Lorem Ave',
+  password: 'test',
+};
+
+const subs = [{ id: 1, subName: 'maths' }];
+
 export const students = [
   {
     name: 'Chelsea Franks',
@@ -6,6 +20,19 @@ export const students = [
     address: '631-5822 Lectus, Av.',
     dob: '08-01-2000',
     id: '91067B41-A9E1-F7CD-6810-30348E351C17',
+    classId: [2, 1, 4, 7, 5],
+    marks: [
+      {
+        subId: 1,
+        marks: 42,
+      },
+    ],
+    attendance: [
+      {
+        subName: 'maths',
+        daysAttended: 54,
+      },
+    ],
   },
   {
     name: 'Lawrence Mckay',
@@ -198,5 +225,377 @@ export const students = [
     address: 'Ap #350-5399 Donec Rd.',
     dob: '08-07-2000',
     id: 'EE08EC1D-CECA-1E92-9A7D-03533D16F6A2',
+  },
+];
+
+const assignemntSubmissions = [
+  {
+    id: 2,
+    qid: 1,
+    studId: 3,
+    file: 'path',
+  },
+];
+
+const assignments = [
+  {
+    facId: 3,
+    assignmentQ: 'path',
+    id: 1,
+  },
+];
+
+const classRoom = [
+  {
+    classId: 1,
+    subId: 2,
+    facId: 3,
+    students: [3, 5, 1, 6],
+  },
+];
+
+export const faculties = [
+  {
+    name: 'Eagan Blackburn',
+    email: 'fusce.aliquet@icloud.org',
+    phone: '0894 625 3361',
+    address: '8215 Elementum Road',
+    dob: '07-09-2000',
+    id: '3',
+  },
+  {
+    name: 'Ivana Erickson',
+    email: 'leo.in@google.com',
+    phone: '070 0352 6987',
+    address: '816 Egestas Ave',
+    dob: '31-07-2000',
+    id: 'A3CB2C94-5074-2D99-5584-2D7552CC2A2C',
+  },
+  {
+    name: 'Danielle Velazquez',
+    email: 'laoreet.lectus@icloud.ca',
+    phone: '07248 128687',
+    address: 'Ap #555-6941 Diam Street',
+    dob: '23-03-2000',
+    id: '4F534813-2892-6E4A-4081-7A7A625BF3D8',
+  },
+  {
+    name: 'Mannix Paul',
+    email: 'vitae.diam.proin@hotmail.edu',
+    phone: '0500 552303',
+    address: 'P.O. Box 903, 4936 Tincidunt Av.',
+    dob: '25-09-2000',
+    id: '2B8896CD-9EC0-9E66-E8A8-90DF233CCE0B',
+  },
+  {
+    name: 'Aiko Levy',
+    email: 'consectetuer.adipiscing@icloud.ca',
+    phone: '07624 527550',
+    address: '197-5651 Vestibulum Avenue',
+    dob: '22-06-2000',
+    id: '053F1688-99B8-A915-8B21-E36CB08763C8',
+  },
+  {
+    name: 'Myra Winters',
+    email: 'odio.aliquam@hotmail.ca',
+    phone: '(025) 1455 2715',
+    address: 'Ap #517-9966 Commodo Street',
+    dob: '19-03-2000',
+    id: '1D4CE28E-C875-59A5-651B-6A268FF59CFC',
+  },
+  {
+    name: 'Vladimir Mcgowan',
+    email: 'turpis.egestas@yahoo.couk',
+    phone: '(017926) 74615',
+    address: '915-5440 Vulputate Road',
+    dob: '27-08-2000',
+    id: 'B3FA98CC-9B9E-3EDC-C2F7-8D7FFAA1DE7D',
+  },
+  {
+    name: 'Stephen Head',
+    email: 'sed@yahoo.edu',
+    phone: '(01551) 427466',
+    address: '366-6579 Primis Avenue',
+    dob: '24-03-2000',
+    id: 'E4D1B220-0FC0-CD31-E89C-28AC889BB198',
+  },
+  {
+    name: 'Nathan Carey',
+    email: 'et.ultrices.posuere@hotmail.couk',
+    phone: '0801 275 5112',
+    address: '8653 Luctus Road',
+    dob: '10-12-2000',
+    id: '249BD00D-9341-65A3-11BC-9C96BD6721BA',
+  },
+  {
+    name: 'Martina Crawford',
+    email: 'id.sapien@aol.net',
+    phone: '(012716) 76419',
+    address: 'Ap #752-3080 Nunc Road',
+    dob: '24-07-2000',
+    id: '3D2449E6-CA97-A203-46C1-BE2157E861DF',
+  },
+  {
+    name: 'Isaac Schmidt',
+    email: 'sed.eget@google.ca',
+    phone: '(01877) 59284',
+    address: 'Ap #771-8121 Metus Rd.',
+    dob: '08-04-2000',
+    id: 'EBA9D272-7FBB-1E7E-7D49-CDFADCD13967',
+  },
+  {
+    name: "Ira O'brien",
+    email: 'neque.non@hotmail.com',
+    phone: '(016977) 6647',
+    address: 'Ap #392-1669 Elementum, Road',
+    dob: '16-01-2000',
+    id: 'F1C2B317-A7AB-4768-6793-EA4D8263894E',
+  },
+  {
+    name: 'Amethyst Crawford',
+    email: 'nulla@yahoo.edu',
+    phone: '0968 784 5237',
+    address: 'Ap #327-7248 Et Av.',
+    dob: '23-02-2000',
+    id: '5A7BEEE8-6A1C-1239-C7BE-FA58C3E3BE0D',
+  },
+  {
+    name: 'Fleur Mcmillan',
+    email: 'aliquet.odio@aol.net',
+    phone: '070 7703 1034',
+    address: '462-4440 Et Road',
+    dob: '27-05-2000',
+    id: 'EA72102C-1D79-D00C-8D77-B733C354C546',
+  },
+  {
+    name: 'Zenaida Williams',
+    email: 'per.inceptos@protonmail.edu',
+    phone: '055 1663 4421',
+    address: '852-3861 Amet Street',
+    dob: '08-03-2000',
+    id: '2EBD2E80-6B9A-5570-E517-9EE5AC540CE9',
+  },
+  {
+    name: 'Dillon Noel',
+    email: 'amet.dapibus@aol.org',
+    phone: '07624 589278',
+    address: '362-8393 Bibendum St.',
+    dob: '26-09-2000',
+    id: '98E12E3C-BB39-BEBF-6C87-A7A46995CF2A',
+  },
+  {
+    name: 'Regan Douglas',
+    email: 'pharetra.nibh@outlook.ca',
+    phone: '07624 792682',
+    address: '645-3661 Molestie Road',
+    dob: '05-10-2000',
+    id: '8EB49798-F3A5-9AA3-B76F-B291339D40F7',
+  },
+  {
+    name: 'Hammett Swanson',
+    email: 'amet@icloud.edu',
+    phone: '070 4098 6857',
+    address: '3670 Odio Ave',
+    dob: '07-02-2000',
+    id: 'CDC088C8-C62C-BD16-86CA-4754ED337624',
+  },
+  {
+    name: 'Wendy Rocha',
+    email: 'nam@google.ca',
+    phone: '0800 1111',
+    address: 'Ap #375-1832 Dictum Road',
+    dob: '25-09-2000',
+    id: '0D935D84-BCB1-1A91-4A72-A5FC57D51DEC',
+  },
+  {
+    name: 'Jerome Gross',
+    email: 'fermentum.risus@hotmail.org',
+    phone: '076 3427 3238',
+    address: '495-786 Litora Road',
+    dob: '23-03-2000',
+    id: 'B77F1D16-1BCA-4582-1656-1ACBA3679A29',
+  },
+  {
+    name: 'Jaquelyn Rowe',
+    email: 'dapibus@icloud.net',
+    phone: '0911 124 4308',
+    address: 'Ap #756-6228 Ullamcorper. Avenue',
+    dob: '28-07-2000',
+    id: 'D3C3871C-8C39-7EA6-1DE2-4E8A921995CE',
+  },
+  {
+    name: 'Brynne Moses',
+    email: 'eu.euismod@google.couk',
+    phone: '076 6186 5378',
+    address: 'P.O. Box 226, 3619 Scelerisque St.',
+    dob: '02-12-2000',
+    id: '522A4CE8-83DD-4A63-8F6C-74566DC78D17',
+  },
+  {
+    name: 'Lael Romero',
+    email: 'velit.quisque@aol.ca',
+    phone: '0500 852074',
+    address: 'P.O. Box 127, 5780 Ultrices. St.',
+    dob: '31-05-2000',
+    id: '4A662AB5-92E1-4D9E-862B-7EC495511CD2',
+  },
+  {
+    name: 'Fleur Richards',
+    email: 'ligula.tortor.dictum@outlook.net',
+    phone: '(01279) 11370',
+    address: '5282 Auctor Avenue',
+    dob: '01-05-2000',
+    id: '31138055-C76E-250E-80E3-118AAC8D6974',
+  },
+  {
+    name: 'Teegan Morgan',
+    email: 'sociis.natoque@outlook.com',
+    phone: '(022) 4225 3266',
+    address: '579-3610 Urna. St.',
+    dob: '26-01-2000',
+    id: '45FD1CD3-CD75-AD78-DA29-4E5708550200',
+  },
+  {
+    name: 'Cathleen Garrison',
+    email: 'sed@aol.edu',
+    phone: '(016977) 5405',
+    address: '5657 Vitae Rd.',
+    dob: '30-10-2000',
+    id: 'CEE2027D-8CAA-CAD1-E4DC-DE3039C6841E',
+  },
+  {
+    name: 'Cassidy Parrish',
+    email: 'porttitor.scelerisque.neque@google.net',
+    phone: '(023) 9814 2717',
+    address: 'P.O. Box 899, 6854 Urna Avenue',
+    dob: '09-07-2000',
+    id: 'BB6A2227-222E-CDCC-621D-922C47DB9874',
+  },
+  {
+    name: 'Lance Horne',
+    email: 'aliquet.phasellus.fermentum@google.com',
+    phone: '0800 199351',
+    address: 'P.O. Box 842, 3057 Venenatis Street',
+    dob: '12-07-2000',
+    id: '7D82DC05-13D0-5BE7-8A89-11E6834A8980',
+  },
+  {
+    name: 'Elmo Garrett',
+    email: 'sem@aol.org',
+    phone: '(01870) 17113',
+    address: '6953 Facilisis Avenue',
+    dob: '08-09-2000',
+    id: '389D6228-690E-5B48-86DE-5D5B72DD756E',
+  },
+  {
+    name: 'Aidan Lamb',
+    email: 'dis@icloud.edu',
+    phone: '0500 215471',
+    address: '9609 Gravida Rd.',
+    dob: '13-07-2000',
+    id: '9D93F86D-2E09-8373-14F8-DEC6574271C3',
+  },
+  {
+    name: 'Haviva Carroll',
+    email: 'in.ornare.sagittis@hotmail.couk',
+    phone: '(0116) 387 1402',
+    address: '6371 Dapibus Road',
+    dob: '20-10-2000',
+    id: 'FBD9BB79-16E7-D7C6-A02B-DABA17C07D4B',
+  },
+  {
+    name: 'Zeph Hester',
+    email: 'et.arcu@icloud.couk',
+    phone: '076 2475 2344',
+    address: '102-2319 Vitae Rd.',
+    dob: '27-08-2000',
+    id: 'F569451F-8E32-A5D7-3B4D-4C2E698D135F',
+  },
+  {
+    name: 'Sylvester Deleon',
+    email: 'mauris@yahoo.edu',
+    phone: '(01273) 38252',
+    address: '187-8624 Nec Avenue',
+    dob: '29-08-2000',
+    id: 'D967BD33-C24E-3649-762F-7180F0B64EE3',
+  },
+  {
+    name: 'Tad Garner',
+    email: 'sed.libero@hotmail.net',
+    phone: '07203 430867',
+    address: '776-1031 Adipiscing Road',
+    dob: '02-11-2000',
+    id: '461A2805-3EB0-512E-1565-122364C96AC8',
+  },
+  {
+    name: 'Forrest Diaz',
+    email: 'donec.tincidunt@outlook.net',
+    phone: '(0115) 853 3926',
+    address: 'Ap #538-321 Nascetur Av.',
+    dob: '05-08-2000',
+    id: 'B84C52A2-FBEA-6D2D-3C24-97F42AC0B8C9',
+  },
+];
+
+export const anouncements = [
+  {
+    title: 'rutrum urna, nec luctus felis purus ac tellus.',
+    body: 'lobortis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Mauris ut quam vel sapien imperdiet ornare. In faucibus. Morbi vehicula. Pellentesque tincidunt tempus risus. Donec egestas.',
+  },
+  {
+    title: 'justo eu arcu. Morbi sit amet massa. Quisque',
+    body: 'lobortis risus. In mi pede, nonummy ut, molestie in, tempus eu, ligula. Aenean euismod mauris eu elit. Nulla facilisi. Sed neque. Sed eget lacus. Mauris non dui nec urna suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis',
+  },
+  {
+    title: 'nibh lacinia orci, consectetuer euismod est arcu ac',
+    body: 'dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eget magna. Suspendisse tristique neque venenatis lacus. Etiam bibendum fermentum metus. Aenean sed pede nec ante blandit',
+  },
+  {
+    title: 'Duis at lacus. Quisque purus sapien, gravida non,',
+    body: 'sed consequat auctor, nunc nulla vulputate dui, nec tempus mauris erat eget ipsum. Suspendisse sagittis. Nullam vitae diam. Proin dolor. Nulla semper tellus id nunc interdum feugiat. Sed nec metus facilisis lorem tristique aliquet. Phasellus fermentum convallis ligula. Donec luctus aliquet odio. Etiam ligula tortor, dictum eu, placerat',
+  },
+  {
+    title: 'molestie tortor nibh sit amet orci. Ut sagittis',
+    body: 'fringilla purus mauris a nunc. In at pede. Cras vulputate velit eu sem. Pellentesque ut ipsum ac mi eleifend egestas. Sed pharetra, felis eget varius',
+  },
+  {
+    title: 'ut, pellentesque eget, dictum placerat, augue. Sed molestie.',
+    body: 'Vivamus sit amet risus. Donec egestas. Aliquam nec enim. Nunc ut erat. Sed nunc est, mollis non, cursus non, egestas a, dui. Cras pellentesque. Sed dictum. Proin eget odio. Aliquam vulputate ullamcorper magna. Sed eu eros. Nam consequat dolor vitae dolor.',
+  },
+  {
+    title: 'venenatis a, magna. Lorem ipsum dolor sit amet,',
+    body: 'mi. Aliquam gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet nec, imperdiet nec, leo. Morbi neque tellus, imperdiet non, vestibulum nec, euismod in, dolor. Fusce feugiat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam',
+  },
+  {
+    title: 'odio. Nam interdum enim non nisi. Aenean eget',
+    body: 'quam vel sapien imperdiet ornare. In faucibus. Morbi vehicula. Pellentesque tincidunt tempus risus. Donec egestas. Duis ac arcu. Nunc mauris. Morbi non',
+  },
+  {
+    title: 'nisi sem semper erat, in consectetuer ipsum nunc',
+    body: 'elit elit fermentum risus, at fringilla purus mauris a nunc. In at pede. Cras vulputate velit eu sem. Pellentesque ut ipsum ac mi eleifend egestas. Sed pharetra, felis',
+  },
+  {
+    title: 'nec metus facilisis lorem tristique aliquet. Phasellus fermentum',
+    body: 'non lorem vitae odio sagittis semper. Nam tempor diam dictum sapien. Aenean massa. Integer vitae nibh. Donec est mauris, rhoncus id, mollis nec, cursus a, enim. Suspendisse aliquet, sem ut cursus luctus, ipsum leo elementum sem, vitae aliquam eros turpis non',
+  },
+  {
+    title: 'dictum eu, placerat eget, venenatis a, magna. Lorem',
+    body: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Donec tincidunt. Donec vitae erat vel pede blandit congue. In scelerisque scelerisque dui. Suspendisse ac metus vitae velit egestas lacinia. Sed congue, elit sed consequat auctor, nunc nulla vulputate',
+  },
+  {
+    title: 'dignissim. Maecenas ornare egestas ligula. Nullam feugiat placerat',
+    body: 'est ac mattis semper, dui lectus rutrum urna, nec luctus felis purus ac tellus. Suspendisse sed dolor. Fusce mi lorem, vehicula et, rutrum eu, ultrices sit amet, risus. Donec nibh enim, gravida sit',
+  },
+  {
+    title: 'laoreet, libero et tristique pellentesque, tellus sem mollis',
+    body: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Phasellus ornare. Fusce mollis. Duis sit amet diam eu dolor egestas rhoncus. Proin nisl sem, consequat nec, mollis vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat, augue. Sed molestie.',
+  },
+  {
+    title: 'dictum cursus. Nunc mauris elit, dictum eu, eleifend',
+    body: 'Vivamus euismod urna. Nullam lobortis quam a felis ullamcorper viverra. Maecenas iaculis aliquet diam. Sed diam lorem, auctor quis, tristique ac, eleifend vitae, erat.',
+  },
+  {
+    title: 'sapien. Nunc pulvinar arcu et pede. Nunc sed',
+    body: 'eget lacus. Mauris non dui nec urna suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Phasellus ornare. Fusce mollis. Duis sit amet diam eu dolor egestas rhoncus. Proin nisl sem,',
   },
 ];

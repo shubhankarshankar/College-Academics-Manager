@@ -80,8 +80,15 @@
             matInput
             formControlName="password"
             placeholder="Enter Password"
-            type="password"
+            [type]="showPassword ? 'text' : 'password'"
           />
+          <mat-icon
+            matSuffix
+            style="cursor: pointer; color: rgba(0, 0, 0, 0.54)"
+            (click)="togglePasswordVisibility()"
+          >
+            {{ showPassword ? "visibility_off" : "visibility" }}
+          </mat-icon>
           <mat-error *ngIf="errorHandling('password', 'required')">
             You must provide a password.
           </mat-error>
@@ -93,8 +100,15 @@
             matInput
             placeholder="Confirm Password"
             formControlName="confirmPassword"
-            type="password"
+            [type]="showConfirmPassword ? 'text' : 'password'"
           />
+          <mat-icon
+            matSuffix
+            style="cursor: pointer; color: rgba(0, 0, 0, 0.54)"
+            (click)="toggleConfirmPasswordVisibility()"
+          >
+            {{ showConfirmPassword ? "visibility_off" : "visibility" }}
+          </mat-icon>
           <mat-error *ngIf="errorHandling('confirmPassword', 'required')">
             You must type your password again.
           </mat-error>

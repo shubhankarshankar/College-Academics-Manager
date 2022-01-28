@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -24,16 +25,27 @@ export class RegisterComponent implements OnInit {
     confirmPassword: new FormControl('', [Validators.required]),
   });
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  public showPassword: boolean = false;
+
+  public togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
+
+  public showConfirmPassword: boolean = false;
+
+  public toggleConfirmPasswordVisibility(): void {
+    this.showConfirmPassword = !this.showConfirmPassword;
+  }
 
   public errorHandling = (control: string, error: string) => {
     return this.registerationForm.controls[control].hasError(error);
   };
 
   registerSubmit() {
-    console.log(this.registerationForm.status);
-    console.log(this.registerationForm.value);
+    if (this.registerationForm.valid) this.router.navigate(['/login']);
   }
 }

@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
+import { userDetails } from '../constants/contants';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
+  getAllDetails = () => userDetails;
 
-  constructor() { }
+  public checkAuth() {
+    return !!window.localStorage.getItem('isLoggedIn');
+  }
+
+  constructor() {}
 }

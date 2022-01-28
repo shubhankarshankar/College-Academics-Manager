@@ -11,52 +11,89 @@ import { AnnouncementsComponent } from './components/announcements/announcements
 import { MarksComponent } from './components/marks/marks.component';
 import { AttendanceComponent } from './components/attendance/attendance.component';
 import { AssignmentsComponent } from './components/assignments/assignments.component';
+import { AuthenticationGuard } from './_guards/authentication.guard';
 
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent,
+    loadChildren: () =>
+      import('./routing_modules/login/login.module').then((m) => m.LoginModule),
   },
   {
     path: 'register',
-    component: RegisterComponent,
+    loadChildren: () =>
+      import('./routing_modules/register/register.module').then(
+        (m) => m.RegisterModule
+      ),
   },
   {
     path: 'contact',
-    component: ContactComponent,
+    loadChildren: () =>
+      import('./routing_modules/contact/contact.module').then(
+        (m) => m.ContactModule
+      ),
+    canActivate: [AuthenticationGuard],
   },
   {
     path: 'profile',
-    component: ProfileComponent,
+    loadChildren: () =>
+      import('./routing_modules/profile/profile.module').then(
+        (m) => m.ProfileModule
+      ),
   },
   {
     path: 'dashboard',
-    component: DashboardComponent,
-    pathMatch: 'full',
+    loadChildren: () =>
+      import('./routing_modules/dashboard/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
+    canActivate: [AuthenticationGuard],
   },
   {
     path: 'student-info',
-    component: StudentInfoComponent,
+    loadChildren: () =>
+      import('./routing_modules/student-info/student-info.module').then(
+        (m) => m.StudentInfoModule
+      ),
+    canActivate: [AuthenticationGuard],
   },
   {
     path: 'faculty-info',
-    component: FacultyInfoComponent,
+    loadChildren: () =>
+      import('./routing_modules/faculty-info/faculty-info.module').then(
+        (m) => m.FacultyInfoModule
+      ),
+    canActivate: [AuthenticationGuard],
   },
   {
     path: 'announcements',
-    component: AnnouncementsComponent,
+    loadChildren: () =>
+      import('./routing_modules/announcements/announcements.module').then(
+        (m) => m.AnnouncementsModule
+      ),
+    canActivate: [AuthenticationGuard],
   },
   {
     path: 'marks',
-    component: MarksComponent,
+    loadChildren: () =>
+      import('./routing_modules/marks/marks.module').then((m) => m.MarksModule),
+    canActivate: [AuthenticationGuard],
   },
   {
     path: 'assignments',
-    component: AssignmentsComponent,
+    loadChildren: () =>
+      import('./routing_modules/assignments/assignments.module').then(
+        (m) => m.AssignmentsModule
+      ),
+    canActivate: [AuthenticationGuard],
   },
   {
     path: 'attendance',
-    component: AttendanceComponent,
+    loadChildren: () =>
+      import('./routing_modules/attendance/attendance.module').then(
+        (m) => m.AttendanceModule
+      ),
+    canActivate: [AuthenticationGuard],
   },
   {
     path: '',

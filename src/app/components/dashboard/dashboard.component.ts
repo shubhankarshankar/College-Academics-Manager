@@ -8,5 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {}
+  todayTime: number;
+  message: string;
+
+  ngOnInit(): void {
+    this.todayTime = new Date().getHours();
+    this.message =
+      this.todayTime < 12
+        ? 'Good Morning'
+        : this.todayTime < 18
+        ? 'Good Afternoon'
+        : 'Good Evening';
+  }
 }

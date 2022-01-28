@@ -44,8 +44,15 @@
             matInput
             formControlName="password"
             placeholder="Enter Password"
-            type="password"
+            [type]="showPassword ? 'text' : 'password'"
           />
+          <mat-icon
+            matSuffix
+            style="cursor: pointer; color: rgba(0, 0, 0, 0.54)"
+            (click)="togglePasswordVisibility()"
+          >
+            {{ showPassword ? "visibility_off" : "visibility" }}
+          </mat-icon>
           <mat-error *ngIf="errorHandling('password', 'required')">
             You must provide a password.
           </mat-error>

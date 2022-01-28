@@ -1,35 +1,35 @@
-<!-- <mat-toolbar color="primary">
-  <button
-    mat-icon-button
-    class="example-icon"
-    (click)="drawer.toggle()"
-    aria-label="Example icon-button with menu icon"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>College Manager</span>
-  <span class="example-spacer"></span>
-  <button mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon>account_circle</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu">
-    <a routerLink="/profile" style="text-decoration: none">
-      <button mat-menu-item>My Profile</button>
-    </a>
-    <a routerLink="/" style="text-decoration: none">
-      <button mat-menu-item>Logout</button>
-    </a>
-  </mat-menu>
-</mat-toolbar>
-
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <app-main-nav></app-main-nav>
-  </mat-drawer>
-
-  <mat-drawer-content>
-    <div class="outer-wrapper" style="min-height: 95vh">Profile Works</div>
-  </mat-drawer-content>
-</mat-drawer-container> -->
-
-<app-main-nav>Profile Works!</app-main-nav>
+<app-main-nav>
+  <div class="profile-wrapper">
+    <div class="inner-wrapper">
+      <div class="mat-display-2 comp-header">My Profile</div>
+      <div class="profile-content">
+        <mat-card class="profile-card">
+          <mat-card-content>
+            <div class="profile-inner">
+              <div class="profile-img">
+                <mat-icon style="font-size: 250px" color="primary"
+                  >person</mat-icon
+                >
+              </div>
+              <div class="profile-details">
+                <mat-card-title class="name">Shubhankar Shankar</mat-card-title>
+                <div class="deets">Role: Admin</div>
+                <div class="deets">
+                  ID: EE08EC1D-CECA-1E92-9A7D-03533D16F6A2
+                </div>
+                <div class="deets">Phone Number: 9920238253</div>
+                <div class="deets">Email: shubhankarshankar@admin.com</div>
+                <div class="deets">Gender: Male</div>
+                <div class="deets">DoB: 28/04/2000</div>
+                <div class="deets">Address: P.O. Box 911, 6932 Lorem Ave</div>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions class="crd-actions">
+            <button mat-raised-button color="primary">Update Profile</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</app-main-nav>

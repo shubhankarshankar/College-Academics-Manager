@@ -1,14 +1,42 @@
-.contact-wrapper {
-  padding: 80px;
+@import "../../../styles.scss";
 
+.contact-wrapper {
   .inner-wrapper {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     .example-card {
-      max-width: 400px;
-      .contnt {
-        padding: 20px;
+      width: 100%;
+      .contact-cards-wrapper {
+        display: flex;
+        justify-content: space-between;
+        .contact-card-wrapper {
+          .contact-card {
+            min-height: 100px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            .contact-card-deet {
+              font-size: 20px;
+              color: $accent;
+              font-weight: 400;
+            }
+            .title {
+              display: flex;
+              align-items: center;
+              .contact-card-hd {
+                font-size: 20px;
+                margin: 0 35px;
+              }
+              .mat-icon {
+                min-width: 45px;
+                min-height: 45px;
+              }
+            }
+          }
+        }
       }
     }
   }
