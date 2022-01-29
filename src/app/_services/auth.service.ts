@@ -1,18 +1,27 @@
 import { Injectable } from '@angular/core';
 import { UserService } from './user.service';
+import { UserDetails } from '../interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  userEmail: string = '';
-  userPass: string = '';
+  userDetails: UserDetails[];
 
-  login(enteredEmail: string, enteredPass: string) {
-    this.userEmail = this.userService.getAllDetails().email;
-    this.userPass = this.userService.getAllDetails().password;
+  login(enteredEmail: string, enteredPass: string): boolean {
+    this.userDetails = this.userService.getAllDetails();
 
-    return this.userEmail === enteredEmail && this.userPass === enteredPass;
+    for (let i = 0; i < this.userDetails.length; i++) {
+      if (
+        enteredEmail === this.userDetails[i].email &&
+        enteredPass === this.userDetails[i].password
+      ) {
+        this.userService.setCurrentUser(this.userDetails[i].email);
+        return true;
+      }
+    }
+
+    return false;
   }
 
   setLogin() {
@@ -20,7 +29,7 @@ export class AuthService {
   }
 
   rmLogin() {
-    window.localStorage.removeItem('isLoggedIn');
+    window.localStorage.clear();
   }
 
   constructor(private userService: UserService) {}

@@ -12,16 +12,33 @@
                 >
               </div>
               <div class="profile-details">
-                <mat-card-title class="name">Shubhankar Shankar</mat-card-title>
-                <div class="deets">Role: Admin</div>
+                <mat-card-title class="name">{{
+                  currentUser?.name
+                }}</mat-card-title>
                 <div class="deets">
-                  ID: EE08EC1D-CECA-1E92-9A7D-03533D16F6A2
+                  <strong>Role:</strong> &nbsp; {{ currentUser?.role }}
                 </div>
-                <div class="deets">Phone Number: 9920238253</div>
-                <div class="deets">Email: shubhankarshankar@admin.com</div>
-                <div class="deets">Gender: Male</div>
-                <div class="deets">DoB: 28/04/2000</div>
-                <div class="deets">Address: P.O. Box 911, 6932 Lorem Ave</div>
+                <div class="deets">
+                  <strong>ID:</strong> &nbsp; {{ currentUser?.cid }}
+                </div>
+                <div class="deets">
+                  <strong>Phone Number:</strong> &nbsp; {{ currentUser?.phone }}
+                </div>
+                <div class="deets">
+                  <strong>Email:</strong> &nbsp; {{ currentUser?.email }}
+                </div>
+                <div class="deets">
+                  <strong>Gender:</strong> &nbsp; {{ currentUser?.gender }}
+                </div>
+                <div class="deets">
+                  <strong>DoB:</strong> &nbsp;
+                  {{ currentUser?.dob?.getDate() }} /
+                  {{ currentUser?.dob?.getMonth() }} /
+                  {{ currentUser?.dob?.getFullYear() }}
+                </div>
+                <div class="deets">
+                  <strong>Address:</strong> &nbsp; {{ currentUser?.address }}
+                </div>
               </div>
             </div>
           </mat-card-content>

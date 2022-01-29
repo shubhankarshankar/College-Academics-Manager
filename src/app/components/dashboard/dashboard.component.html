@@ -5,7 +5,7 @@
         <span class="mat-display-3" style="color: #ff4081"
           >{{ message }},&nbsp;</span
         >
-        <span class="mat-display-3">Shubhankar Shankar</span>
+        <span class="mat-display-3">{{ name }}</span>
       </div>
       <div class="content-wrapper">
         <div class="stats-wrapper">
@@ -48,11 +48,14 @@
               <span class="mat-display-4 stat-num">78%</span>
             </mat-card-content>
             <mat-card-actions style="text-align: center">
-              <a routerLink="/attendance">
+              <!-- <a routerLink="/attendance">
                 <button mat-raised-button color="primary">
                   View Attendance
                 </button>
-              </a>
+              </a>  -->
+              <span style="cursor: text" class="mat-button"
+                >Days Present: 36</span
+              >
             </mat-card-actions>
           </mat-card>
 
@@ -90,6 +93,9 @@
         <div class="announcement-wrapper">
           <div class="annoucement-hd">
             <span class="mat-display-1">Recent Announcements</span>
+            <a routerLink="/announcements">
+              <button mat-button color="accent">All Announcements</button>
+            </a>
           </div>
           <mat-card class="table-card" style="padding: 0">
             <mat-card-content>
@@ -114,8 +120,11 @@
                 ></tr>
               </table>
               <mat-paginator
-                [pageSize]="3"
-                [pageSizeOptions]="[2, 4, 6, 10, 20, 50]"
+                [pageSize]="4"
+                style="color: white; display: none"
+                color="primary"
+                disabled
+                hidePageSize
               >
               </mat-paginator>
             </mat-card-content>

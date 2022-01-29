@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { AnnouncementService } from 'src/app/_services/announcement.service';
@@ -20,13 +19,13 @@ export class DashboardComponent implements OnInit {
   message: string;
   data: any;
   role: string;
+  name: string;
   displayedColumns: string[] = ['title'];
-
-  @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {
-    this.role = this.userService.getAllDetails().role;
+    this.role = this.userService.getCurrentUser().role;
+    this.name = this.userService.getCurrentUser().name;
     this.data = new MatTableDataSource(
       this.announcementService.getAllAnnouncements()
     );
@@ -40,7 +39,6 @@ export class DashboardComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.data.sort = this.sort;
     this.data.paginator = this.paginator;
   }
 }

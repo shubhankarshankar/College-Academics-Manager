@@ -12,10 +12,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./main-nav.component.scss'],
 })
 export class MainNavComponent {
-  role: string | null = null;
+  role: string | null | undefined = null;
 
   ngOnInit() {
-    this.role = this.userService.getAllDetails().role;
+    this.role = this.userService.getCurrentUser()?.role;
   }
 
   isHandset$: Observable<boolean> = this.breakpointObserver

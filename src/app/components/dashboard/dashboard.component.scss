@@ -22,3 +22,11 @@
     }
   }
 }
+
+:host {
+  ::ng-deep {
+    .mat-paginator-icon {
+      display: none;
+    }
+  }
+}
