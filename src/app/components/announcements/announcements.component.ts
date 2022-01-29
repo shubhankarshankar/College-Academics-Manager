@@ -38,6 +38,10 @@ export class AnnouncementsComponent implements OnInit {
     );
   }
 
+  disp(row: any) {
+    console.log(row);
+  }
+
   doFilter(event: Event) {
     let value: string = (<HTMLInputElement>event.target).value;
     this.data.filter = value.trim().toLocaleLowerCase();

@@ -35,6 +35,13 @@ const routes: Routes = [
     canActivate: [AuthenticationGuard],
   },
   {
+    path: 'classes',
+    loadChildren: () =>
+      import('./routing_modules/classes/classes.module').then(
+        (m) => m.ClassesModule
+      ),
+  },
+  {
     path: 'profile',
     loadChildren: () =>
       import('./routing_modules/profile/profile.module').then(
@@ -97,7 +104,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'dashboard',
     pathMatch: 'full',
   },
 ];

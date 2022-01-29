@@ -1,0 +1,24 @@
+@import "../../../styles.scss";
+
+.dashboard-outer-wrapper {
+  .dashboard-wrapper {
+    .content-wrapper {
+      margin-top: 3rem;
+      .announcement-wrapper {
+        margin-top: 4rem;
+        table {
+          margin-top: 1.5rem;
+        }
+      }
+      .stats-wrapper {
+        display: flex;
+        .stat-card {
+          width: 20%;
+          min-width: 100px;
+          padding: 30px;
+          margin-right: 3rem;
+        }
+      }
+    }
+  }
+}

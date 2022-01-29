@@ -6,9 +6,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainNavComponent } from './main-nav/main-nav.component';
+import { ClassesComponent } from './components/classes/classes.component';
 
 @NgModule({
-  declarations: [AppComponent, MainNavComponent, routingComponents],
+  declarations: [AppComponent, MainNavComponent, routingComponents, ClassesComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

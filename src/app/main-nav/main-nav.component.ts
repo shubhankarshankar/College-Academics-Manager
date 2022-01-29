@@ -27,7 +27,7 @@ export class MainNavComponent {
 
   logout = () => {
     this.authService.rmLogin();
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/login');
   };
 
   constructor(

@@ -34,22 +34,29 @@
         Attendance</a
       >
       <br />
-      <ng-container *ngIf="role === 'Admin'">
+      <ng-container>
         <a mat-list-item routerLink="/faculty-info"
           ><mat-icon color="warn">contact_mail</mat-icon> &nbsp; &nbsp; Faculty
           Info</a
         >
         <br />
       </ng-container>
-      <ng-container *ngIf="role === 'Admin' || role === 'Faculty'">
+      <ng-container *ngIf="role === 'Admin'">
         <a mat-list-item routerLink="/student-info"
           ><mat-icon color="warn">perm_contact_calendar</mat-icon> &nbsp; &nbsp;
           Student Info</a
         >
         <br />
       </ng-container>
+      <ng-container *ngIf="role === 'Faculty'">
+        <a mat-list-item routerLink="/classes"
+          ><mat-icon color="warn">groups</mat-icon> &nbsp; &nbsp; Your
+          Classes</a
+        >
+        <br />
+      </ng-container>
       <a mat-list-item routerLink="/marks"
-        ><mat-icon color="warn">60fps_select</mat-icon> &nbsp; &nbsp; Marks</a
+        ><mat-icon color="warn">school</mat-icon> &nbsp; &nbsp; Marks</a
       >
       <br />
       <a mat-list-item routerLink="/contact"

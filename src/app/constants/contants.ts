@@ -4,7 +4,7 @@ export const userDetails = {
   id: 'EE08EC1D-CECA-1E92-9A7D-03533D16F6A2',
   gender: 'Male',
   phno: '8982930139',
-  email: 'shubhankar@gmail.com',
+  email: 'admin@admin.com',
   dob: new Date(2000, 6, 24),
   address: 'P.O. Box 911, 6932 Lorem Ave',
   password: 'test',
