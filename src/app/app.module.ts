@@ -12,6 +12,11 @@ import { UpdateProfileDialogComponent } from './components/profile/update-profil
 import { FacultyDetailsUpdateComponent } from './components/faculty-info/faculty-details-update/faculty-details-update.component';
 import { StudentDetailsComponent } from './components/student-info/student-details/student-details.component';
 import { StudentDetailsUpdateComponent } from './components/student-info/student-details-update/student-details-update.component';
+import { AnnouncementDialogComponent } from './components/announcements/announcement-dialog/announcement-dialog.component';
+import { AnnouncementAddComponent } from './components/announcements/announcement-add/announcement-add.component';
+import { AnnouncementUpdateComponent } from './components/announcements/announcement-update/announcement-update.component';
+import { FacultyInfoAddComponent } from './components/faculty-info/faculty-info-add/faculty-info-add.component';
+import { StudentInfoAddComponent } from './components/student-info/student-info-add/student-info-add.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +28,11 @@ import { StudentDetailsUpdateComponent } from './components/student-info/student
     FacultyDetailsUpdateComponent,
     StudentDetailsComponent,
     StudentDetailsUpdateComponent,
+    AnnouncementDialogComponent,
+    AnnouncementAddComponent,
+    AnnouncementUpdateComponent,
+    FacultyInfoAddComponent,
+    StudentInfoAddComponent,
   ],
   imports: [
     BrowserModule,

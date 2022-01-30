@@ -17,6 +17,10 @@ import { ClassesComponent } from './components/classes/classes.component';
 import { FacultyDetailsUpdateComponent } from './components/faculty-info/faculty-details-update/faculty-details-update.component';
 import { StudentDetailsComponent } from './components/student-info/student-details/student-details.component';
 import { StudentDetailsUpdateComponent } from './components/student-info/student-details-update/student-details-update.component';
+import { AnnouncementAddComponent } from './components/announcements/announcement-add/announcement-add.component';
+import { AnnouncementUpdateComponent } from './components/announcements/announcement-update/announcement-update.component';
+import { FacultyInfoAddComponent } from './components/faculty-info/faculty-info-add/faculty-info-add.component';
+import { StudentInfoAddComponent } from './components/student-info/student-info-add/student-info-add.component';
 
 const routes: Routes = [
   {
@@ -78,6 +82,16 @@ const routes: Routes = [
     canActivate: [AuthenticationGuard],
   },
   {
+    path: 'faculty-info/add',
+    component: FacultyInfoAddComponent,
+    canActivate: [AuthenticationGuard],
+  },
+  {
+    path: 'student-info/add',
+    component: StudentInfoAddComponent,
+    canActivate: [AuthenticationGuard],
+  },
+  {
     path: 'faculty-info/:id',
     component: FacultyDetailComponent,
     canActivate: [AuthenticationGuard],
@@ -105,6 +119,16 @@ const routes: Routes = [
       import('./routing_modules/announcements/announcements.module').then(
         (m) => m.AnnouncementsModule
       ),
+    canActivate: [AuthenticationGuard],
+  },
+  {
+    path: 'announcements/add',
+    component: AnnouncementAddComponent,
+    canActivate: [AuthenticationGuard],
+  },
+  {
+    path: 'announcements/update/:id',
+    component: AnnouncementUpdateComponent,
     canActivate: [AuthenticationGuard],
   },
   {

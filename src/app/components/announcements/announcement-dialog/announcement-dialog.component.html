@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<mat-dialog-content class="mat-typography">
+  <p>
+    {{ data.body }}
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="true" mat-dialog-close>Close</button>
+  <a *ngIf="role === 'Admin'">
+    <button mat-button color="warn" [mat-dialog-close]="true">Delete</button>
+  </a>
+  <button
+    mat-raised-button
+    color="primary"
+    [mat-dialog-close]="true"
+    (click)="onUpdateClick(data.id)"
+    *ngIf="role === 'Admin'"
+  >
+    Update
+  </button>
+</mat-dialog-actions>

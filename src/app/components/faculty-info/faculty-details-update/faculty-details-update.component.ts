@@ -18,11 +18,11 @@ export class FacultyDetailsUpdateComponent implements OnInit {
   facId: string;
 
   ngOnInit(): void {
+    if (this.userService.getCurrentUser().role != 'Admin')
+      this.router.navigateByUrl(`faculty-info/${this.facId}`);
     this.route.root.firstChild?.params.subscribe(
       (rootParams) => (this.facId = rootParams['id'])
     );
-    if (this.userService.getCurrentUser().role != 'Admin')
-      this.router.navigateByUrl(`faculty-info/${this.facId}`);
   }
 
   updateFacultyForm = new FormGroup({

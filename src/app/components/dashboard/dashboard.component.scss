@@ -8,6 +8,14 @@
         margin-top: 4rem;
         table {
           margin-top: 1.5rem;
+          .rr {
+            cursor: pointer;
+          }
+
+          .rr:hover {
+            background-color: rgba($color: #000, $alpha: 0.1);
+            transition: 0.5s;
+          }
         }
       }
       .stats-wrapper {

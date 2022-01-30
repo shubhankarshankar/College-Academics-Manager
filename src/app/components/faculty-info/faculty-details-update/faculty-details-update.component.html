@@ -45,11 +45,12 @@
               ></textarea>
             </mat-form-field>
           </mat-card-content>
-          <mat-card-actions class="crd-actions">
+          <mat-card-actions class="crd-actions" align="end">
+            <button mat-button color="warn" (click)="onCancel()">Cancel</button>
+
             <button mat-raised-button color="primary" type="submit">
               Confirm Update
             </button>
-            <button mat-button color="warn" (click)="onCancel()">Cancel</button>
           </mat-card-actions>
         </mat-card>
       </form>

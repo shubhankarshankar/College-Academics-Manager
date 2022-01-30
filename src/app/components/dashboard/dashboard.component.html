@@ -28,11 +28,25 @@
               >Number of Students</mat-card-title
             >
             <mat-card-content style="text-align: center; margin-top: 30px">
-              <span class="mat-display-4 stat-num">50</span>
+              <span class="mat-display-4 stat-num">61</span>
             </mat-card-content>
             <mat-card-actions style="text-align: center">
               <a routerLink="/student-info">
                 <button mat-raised-button color="primary">View Details</button>
+              </a>
+            </mat-card-actions>
+          </mat-card>
+
+          <mat-card class="stat-card" *ngIf="role === 'Admin'">
+            <mat-card-title style="text-align: center"
+              >Active Classrooms</mat-card-title
+            >
+            <mat-card-content style="text-align: center; margin-top: 30px">
+              <span class="mat-display-4 stat-num">24</span>
+            </mat-card-content>
+            <mat-card-actions style="text-align: center">
+              <a routerLink="/classes">
+                <button mat-raised-button color="primary">All Classes</button>
               </a>
             </mat-card-actions>
           </mat-card>
@@ -45,7 +59,7 @@
               >Your Attendance</mat-card-title
             >
             <mat-card-content style="text-align: center; margin-top: 30px">
-              <span class="mat-display-4 stat-num">78%</span>
+              <span class="mat-display-4 stat-num">87%</span>
             </mat-card-content>
             <mat-card-actions style="text-align: center">
               <!-- <a routerLink="/attendance">
@@ -64,7 +78,7 @@
               >Your Classes</mat-card-title
             >
             <mat-card-content style="text-align: center; margin-top: 30px">
-              <span class="mat-display-4 stat-num">5</span>
+              <span class="mat-display-4 stat-num">9</span>
             </mat-card-content>
             <mat-card-actions style="text-align: center">
               <a routerLink="/classes">
@@ -78,7 +92,7 @@
               >Assignments Due</mat-card-title
             >
             <mat-card-content style="text-align: center; margin-top: 30px">
-              <span class="mat-display-4 stat-num">2</span>
+              <span class="mat-display-4 stat-num">9</span>
             </mat-card-content>
             <mat-card-actions style="text-align: center">
               <a routerLink="/assignments">
@@ -108,6 +122,23 @@
                     {{ element.title }}
                   </td>
                 </ng-container>
+                <ng-container matColumnDef="body">
+                  <th style="color: white" mat-header-cell *matHeaderCellDef>
+                    BODY
+                  </th>
+                  <td
+                    mat-cell
+                    style="
+                      overflow: hidden;
+                      white-space: nowrap;
+                      text-overflow: ellipsis;
+                      max-width: 69ch;
+                    "
+                    *matCellDef="let element"
+                  >
+                    {{ element.body }}
+                  </td>
+                </ng-container>
 
                 <tr
                   mat-header-row
@@ -116,6 +147,8 @@
                 ></tr>
                 <tr
                   mat-row
+                  class="rr"
+                  (click)="openAnnouncementDialog(row)"
                   *matRowDef="let row; columns: displayedColumns"
                 ></tr>
               </table>

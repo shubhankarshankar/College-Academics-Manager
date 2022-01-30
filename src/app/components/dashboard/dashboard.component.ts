@@ -3,6 +3,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { AnnouncementService } from 'src/app/_services/announcement.service';
 import { UserService } from 'src/app/_services/user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { Announcement } from '../announcements/announcements.component';
+import { AnnouncementDialogComponent } from '../announcements/announcement-dialog/announcement-dialog.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +15,8 @@ import { UserService } from 'src/app/_services/user.service';
 export class DashboardComponent implements OnInit {
   constructor(
     private announcementService: AnnouncementService,
-    private userService: UserService
+    private userService: UserService,
+    public dialog: MatDialog
   ) {}
 
   todayTime: number;
@@ -20,7 +24,7 @@ export class DashboardComponent implements OnInit {
   data: any;
   role: string;
   name: string;
-  displayedColumns: string[] = ['title'];
+  displayedColumns: string[] = ['title', 'body'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {
@@ -40,5 +44,11 @@ export class DashboardComponent implements OnInit {
 
   ngAfterViewInit() {
     this.data.paginator = this.paginator;
+  }
+
+  openAnnouncementDialog(row: Announcement) {
+    const dialogRef = this.dialog.open(AnnouncementDialogComponent, {
+      data: row,
+    });
   }
 }

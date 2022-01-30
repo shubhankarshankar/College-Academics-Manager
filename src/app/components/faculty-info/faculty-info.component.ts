@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { FacultyInfoService } from 'src/app/_services/faculty-info.service';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/_services/user.service';
 
 export interface FacultyData {
   name: string;
@@ -22,9 +23,11 @@ export interface FacultyData {
 export class FacultyInfoComponent implements OnInit {
   constructor(
     private facultyInfoService: FacultyInfoService,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {}
 
+  role: string;
   data: any;
   displayedColumns: string[] = ['name', 'email', 'phone'];
 
@@ -32,6 +35,7 @@ export class FacultyInfoComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {
+    this.role = this.userService.getCurrentUser().role;
     this.getAllFaculties();
   }
 
@@ -47,7 +51,6 @@ export class FacultyInfoComponent implements OnInit {
   }
 
   onRowClick(row: FacultyData) {
-    console.log(row.id);
     this.router.navigateByUrl(`faculty-info/${row.id}`);
   }
 

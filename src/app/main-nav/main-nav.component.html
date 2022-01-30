@@ -71,7 +71,9 @@
       <button mat-icon-button (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-      <span> {{ role }} Portal </span>
+      <a routerLink="/" style="text-decoration: none; color: inherit">
+        <span> {{ role }} Portal </span>
+      </a>
       <span class="example-spacer"></span>
       <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon style="font-size: 35px">account_circle</mat-icon>

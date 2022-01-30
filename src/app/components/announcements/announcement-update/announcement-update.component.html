@@ -1,0 +1,57 @@
+<app-main-nav>
+  <div class="page-header">
+    <div class="mat-display-2">Update Announcement</div>
+    <button
+      mat-raised-button
+      (click)="goBack()"
+      color="accent"
+      style="height: fit-content"
+    >
+      <mat-icon>arrow_back</mat-icon>
+      Go Back
+    </button>
+  </div>
+
+  <div class="comp-content-wrapper">
+    <div class="form-wrapper">
+      <form>
+        <mat-card class="update-announcement-card">
+          <mat-card-header>
+            <mat-card-title>
+              <span class="mat-display-1">Announcement Details</span>
+            </mat-card-title>
+            <mat-card-subtitle>Leave Uncahnged Fields Empty.</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-form-field appearance="outline" class="input-fields">
+              <mat-label>Title</mat-label>
+              <input matInput placeholder="Enter Title" />
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="outline" class="input-fields">
+              <mat-label>Announcement Message</mat-label>
+              <textarea matInput placeholder="Enter the message"></textarea>
+            </mat-form-field>
+            <br />
+          </mat-card-content>
+          <mat-card-actions class="crd-actions" align="end">
+            <button mat-raised-button color="primary" type="submit">
+              Update Announcement
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </form>
+    </div>
+    <mat-card style="margin-top: 80px" class="original-announcement-card">
+      <mat-card-header>
+        <mat-card-title>
+          <span class="mat-display-1">Original Announcement</span>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="mat-title">{{ originalTitle }}</div>
+        <div class="mat-body-1">{{ originalBody }}</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</app-main-nav>

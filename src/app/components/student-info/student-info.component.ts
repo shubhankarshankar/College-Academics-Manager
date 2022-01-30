@@ -3,6 +3,9 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { StudentInfoService } from 'src/app/_services/student-info.service';
+import { Router } from '@angular/router';
+import { StudentDetails } from 'src/app/interfaces';
+import { UserService } from 'src/app/_services/user.service';
 
 export interface StudentData {
   name: string;
@@ -19,8 +22,13 @@ export interface StudentData {
   styleUrls: ['./student-info.component.scss'],
 })
 export class StudentInfoComponent implements OnInit {
-  constructor(private studentInfoService: StudentInfoService) {}
+  constructor(
+    private studentInfoService: StudentInfoService,
+    private router: Router,
+    private userService: UserService
+  ) {}
 
+  role: string;
   data: any;
   displayedColumns: string[] = ['name', 'email', 'phone'];
 
@@ -28,6 +36,7 @@ export class StudentInfoComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {
+    this.role = this.userService.getCurrentUser().role;
     this.getAllStudents();
   }
 
@@ -40,6 +49,10 @@ export class StudentInfoComponent implements OnInit {
     this.data = new MatTableDataSource(
       this.studentInfoService.getAllStudents()
     );
+  }
+
+  onRowClick(row: StudentDetails) {
+    this.router.navigateByUrl(`student-info/${row.id}`);
   }
 
   doFilter(event: Event) {

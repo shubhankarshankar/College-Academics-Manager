@@ -1,0 +1,21 @@
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.comp-content-wrapper {
+  .table-card {
+    overflow: scroll;
+    padding: 0;
+    table {
+      .rr {
+        cursor: pointer;
+      }
+
+      .rr:hover {
+        background-color: rgba($color: #000, $alpha: 0.1);
+        transition: 0.5s;
+      }
+    }
+  }
+}

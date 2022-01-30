@@ -9,6 +9,7 @@
           color="accent"
           style="height: fit-content"
         >
+          <mat-icon>arrow_back</mat-icon>
           Go Back
         </button>
       </div>
@@ -42,7 +43,9 @@
               </div>
             </div>
           </mat-card-content>
-          <mat-card-actions *ngIf="role === 'Admin'">
+          <mat-card-actions *ngIf="role === 'Admin'" align="end">
+            <button mat-button color="warn">Delete Faculty</button>
+
             <button
               mat-raised-button
               color="primary"
@@ -51,7 +54,6 @@
             >
               Update Faculty Details
             </button>
-            <button mat-button color="warn">Delete Faculty</button>
           </mat-card-actions>
         </mat-card>
 

@@ -2,9 +2,16 @@
 
 .facinfo-wrapper {
   .inner-wrapper {
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
     .comp-content-wrapper {
       .content-inner-wrapper {
         .table-card {
+          overflow: scroll;
+
           padding: 0;
           .rr {
             cursor: pointer;
@@ -13,10 +20,6 @@
           .rr:hover {
             background-color: rgba($color: #000, $alpha: 0.1);
             transition: 0.5s;
-            // td {
-            //   color: ;
-            //   transition: 0.3s;
-            // }
           }
         }
       }
