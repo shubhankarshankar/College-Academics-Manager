@@ -1,7 +1,10 @@
 <app-main-nav>
   <div class="facinfo-wrapper">
     <div class="inner-wrapper">
-      <div class="mat-display-2 comp-header">Faculty Information</div>
+      <div class="page-header">
+        <div class="mat-display-2 comp-header">Faculty Information</div>
+      </div>
+
       <div class="comp-content-wrapper">
         <div class="content-inner-wrapper">
           <mat-form-field appearance="outline" style="width: 100%">
@@ -15,7 +18,14 @@
           </mat-form-field>
           <mat-card class="table-card">
             <mat-card-content>
-              <table mat-table [dataSource]="data" matSort style="width: 100%">
+              <table
+                mat-table
+                [dataSource]="data"
+                matSort
+                matSortActive="name"
+                matSortDirection="asc"
+                style="width: 100%"
+              >
                 <ng-container matColumnDef="name">
                   <th
                     style="color: white"
@@ -61,6 +71,8 @@
                 ></tr>
                 <tr
                   mat-row
+                  (click)="onRowClick(row)"
+                  class="rr"
                   *matRowDef="let row; columns: displayedColumns"
                 ></tr>
               </table>

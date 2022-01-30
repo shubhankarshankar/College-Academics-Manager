@@ -3,6 +3,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { FacultyInfoService } from 'src/app/_services/faculty-info.service';
+import { Router } from '@angular/router';
 
 export interface FacultyData {
   name: string;
@@ -19,7 +20,10 @@ export interface FacultyData {
   styleUrls: ['./faculty-info.component.scss'],
 })
 export class FacultyInfoComponent implements OnInit {
-  constructor(private facultyInfoService: FacultyInfoService) {}
+  constructor(
+    private facultyInfoService: FacultyInfoService,
+    private router: Router
+  ) {}
 
   data: any;
   displayedColumns: string[] = ['name', 'email', 'phone'];
@@ -40,6 +44,11 @@ export class FacultyInfoComponent implements OnInit {
     this.data = new MatTableDataSource(
       this.facultyInfoService.getAllFaculties()
     );
+  }
+
+  onRowClick(row: FacultyData) {
+    console.log(row.id);
+    this.router.navigateByUrl(`faculty-info/${row.id}`);
   }
 
   doFilter(event: Event) {

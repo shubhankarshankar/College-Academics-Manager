@@ -1,0 +1,46 @@
+.student-wrapper {
+  .inner-wrapper {
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+    }
+    .student-content {
+      display: flex;
+      width: 90%;
+      flex-wrap: wrap;
+      .student-card {
+        max-width: 800px;
+        height: fit-content;
+        .student-inner {
+          display: flex;
+          align-items: center;
+          @media screen and (max-width: 768px) {
+            flex-direction: column;
+          }
+          .student-img {
+            width: 250px;
+          }
+
+          .student-details {
+            .name {
+              font-size: 30px;
+              margin: 5px 0 30px 0;
+            }
+            .deets {
+              font-size: 15px;
+              margin: 5px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+:host {
+  ::ng-deep {
+    .mat-card > .mat-card-actions:last-child {
+      margin: 0;
+    }
+  }
+}

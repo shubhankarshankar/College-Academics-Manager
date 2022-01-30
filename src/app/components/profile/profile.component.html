@@ -43,9 +43,13 @@
             </div>
           </mat-card-content>
           <mat-card-actions class="crd-actions">
-            <button mat-raised-button color="primary">Update Profile</button>
+            <button (click)="openDialog()" mat-raised-button color="primary">
+              Update Profile
+            </button>
           </mat-card-actions>
         </mat-card>
+
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>

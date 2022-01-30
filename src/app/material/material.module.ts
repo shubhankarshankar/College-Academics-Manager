@@ -17,6 +17,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -37,6 +38,7 @@ const MaterialComponents = [
   FlexLayoutModule,
   MatPaginatorModule,
   MatSnackBarModule,
+  MatDialogModule,
 ];
 
 @NgModule({

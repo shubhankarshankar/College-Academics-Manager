@@ -146,6 +146,19 @@ export const users = [
 ];
 
 const subs = [{ id: 1, subName: 'maths' }];
+let classId: [2, 1, 4, 7, 5];
+let marks: [
+  {
+    subId: 1;
+    marks: 42;
+  }
+];
+let attendance: [
+  {
+    subName: 'maths';
+    daysAttended: 54;
+  }
+];
 
 export const students = [
   {
@@ -155,19 +168,6 @@ export const students = [
     address: '631-5822 Lectus, Av.',
     dob: '08-01-2000',
     id: '91067B41-A9E1-F7CD-6810-30348E351C17',
-    classId: [2, 1, 4, 7, 5],
-    marks: [
-      {
-        subId: 1,
-        marks: 42,
-      },
-    ],
-    attendance: [
-      {
-        subName: 'maths',
-        daysAttended: 54,
-      },
-    ],
   },
   {
     name: 'Lawrence Mckay',
@@ -396,7 +396,7 @@ export const faculties = [
     phone: '0894 625 3361',
     address: '8215 Elementum Road',
     dob: '07-09-2000',
-    id: '3',
+    id: '40836AE1-8DDA-6EB0-CED0-2E22CE637474',
   },
   {
     name: 'Ivana Erickson',
@@ -674,62 +674,77 @@ export const faculties = [
 
 export const anouncements = [
   {
+    id: 1,
     title: 'rutrum urna, nec luctus felis purus ac tellus.',
     body: 'lobortis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Mauris ut quam vel sapien imperdiet ornare. In faucibus. Morbi vehicula. Pellentesque tincidunt tempus risus. Donec egestas.',
   },
   {
+    id: 2,
     title: 'justo eu arcu. Morbi sit amet massa. Quisque',
     body: 'lobortis risus. In mi pede, nonummy ut, molestie in, tempus eu, ligula. Aenean euismod mauris eu elit. Nulla facilisi. Sed neque. Sed eget lacus. Mauris non dui nec urna suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis',
   },
   {
+    id: 3,
     title: 'nibh lacinia orci, consectetuer euismod est arcu ac',
     body: 'dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eget magna. Suspendisse tristique neque venenatis lacus. Etiam bibendum fermentum metus. Aenean sed pede nec ante blandit',
   },
   {
+    id: 4,
     title: 'Duis at lacus. Quisque purus sapien, gravida non,',
     body: 'sed consequat auctor, nunc nulla vulputate dui, nec tempus mauris erat eget ipsum. Suspendisse sagittis. Nullam vitae diam. Proin dolor. Nulla semper tellus id nunc interdum feugiat. Sed nec metus facilisis lorem tristique aliquet. Phasellus fermentum convallis ligula. Donec luctus aliquet odio. Etiam ligula tortor, dictum eu, placerat',
   },
   {
+    id: 5,
     title: 'molestie tortor nibh sit amet orci. Ut sagittis',
     body: 'fringilla purus mauris a nunc. In at pede. Cras vulputate velit eu sem. Pellentesque ut ipsum ac mi eleifend egestas. Sed pharetra, felis eget varius',
   },
   {
+    id: 6,
     title: 'ut, pellentesque eget, dictum placerat, augue. Sed molestie.',
     body: 'Vivamus sit amet risus. Donec egestas. Aliquam nec enim. Nunc ut erat. Sed nunc est, mollis non, cursus non, egestas a, dui. Cras pellentesque. Sed dictum. Proin eget odio. Aliquam vulputate ullamcorper magna. Sed eu eros. Nam consequat dolor vitae dolor.',
   },
   {
+    id: 7,
     title: 'venenatis a, magna. Lorem ipsum dolor sit amet,',
     body: 'mi. Aliquam gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet nec, imperdiet nec, leo. Morbi neque tellus, imperdiet non, vestibulum nec, euismod in, dolor. Fusce feugiat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam',
   },
   {
+    id: 8,
     title: 'odio. Nam interdum enim non nisi. Aenean eget',
     body: 'quam vel sapien imperdiet ornare. In faucibus. Morbi vehicula. Pellentesque tincidunt tempus risus. Donec egestas. Duis ac arcu. Nunc mauris. Morbi non',
   },
   {
+    id: 9,
     title: 'nisi sem semper erat, in consectetuer ipsum nunc',
     body: 'elit elit fermentum risus, at fringilla purus mauris a nunc. In at pede. Cras vulputate velit eu sem. Pellentesque ut ipsum ac mi eleifend egestas. Sed pharetra, felis',
   },
   {
+    id: 10,
     title: 'nec metus facilisis lorem tristique aliquet. Phasellus fermentum',
     body: 'non lorem vitae odio sagittis semper. Nam tempor diam dictum sapien. Aenean massa. Integer vitae nibh. Donec est mauris, rhoncus id, mollis nec, cursus a, enim. Suspendisse aliquet, sem ut cursus luctus, ipsum leo elementum sem, vitae aliquam eros turpis non',
   },
   {
+    id: 11,
     title: 'dictum eu, placerat eget, venenatis a, magna. Lorem',
     body: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Donec tincidunt. Donec vitae erat vel pede blandit congue. In scelerisque scelerisque dui. Suspendisse ac metus vitae velit egestas lacinia. Sed congue, elit sed consequat auctor, nunc nulla vulputate',
   },
   {
+    id: 12,
     title: 'dignissim. Maecenas ornare egestas ligula. Nullam feugiat placerat',
     body: 'est ac mattis semper, dui lectus rutrum urna, nec luctus felis purus ac tellus. Suspendisse sed dolor. Fusce mi lorem, vehicula et, rutrum eu, ultrices sit amet, risus. Donec nibh enim, gravida sit',
   },
   {
+    id: 13,
     title: 'laoreet, libero et tristique pellentesque, tellus sem mollis',
     body: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Phasellus ornare. Fusce mollis. Duis sit amet diam eu dolor egestas rhoncus. Proin nisl sem, consequat nec, mollis vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat, augue. Sed molestie.',
   },
   {
+    id: 14,
     title: 'dictum cursus. Nunc mauris elit, dictum eu, eleifend',
     body: 'Vivamus euismod urna. Nullam lobortis quam a felis ullamcorper viverra. Maecenas iaculis aliquet diam. Sed diam lorem, auctor quis, tristique ac, eleifend vitae, erat.',
   },
   {
+    id: 15,
     title: 'sapien. Nunc pulvinar arcu et pede. Nunc sed',
     body: 'eget lacus. Mauris non dui nec urna suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Phasellus ornare. Fusce mollis. Duis sit amet diam eu dolor egestas rhoncus. Proin nisl sem,',
   },

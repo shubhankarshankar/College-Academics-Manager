@@ -6,7 +6,7 @@
       }
       .crd-actions {
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
       }
       .profile-inner {
         display: flex;
@@ -19,6 +19,7 @@
         }
 
         .profile-details {
+          margin-top: 15px;
           .name {
             font-size: 30px;
             margin: 5px 0 30px 0;
@@ -29,6 +30,16 @@
           }
         }
       }
+    }
+  }
+}
+
+:host {
+  ::ng-deep {
+    .mat-raised-button:first-child {
+      position: relative;
+      right: 48px;
+      bottom: 20px;
     }
   }
 }

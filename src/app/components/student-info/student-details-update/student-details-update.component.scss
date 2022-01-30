@@ -1,0 +1,20 @@
+.student-update-form-wrapper {
+  margin-left: 4rem;
+  width: 500px;
+  @media screen and (max-width: 1440px) {
+    width: 300px;
+  }
+  @media screen and (max-width: 1240px) {
+    margin-left: 0;
+    margin-top: 2rem;
+    width: 500px;
+  }
+  @media screen and (max-width: 600px) {
+    width: 300px;
+  }
+  form {
+    .input-fields {
+      width: 100%;
+    }
+  }
+}

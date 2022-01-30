@@ -1,9 +1,23 @@
+@import "../../../styles.scss";
+
 .facinfo-wrapper {
   .inner-wrapper {
     .comp-content-wrapper {
       .content-inner-wrapper {
         .table-card {
           padding: 0;
+          .rr {
+            cursor: pointer;
+          }
+
+          .rr:hover {
+            background-color: rgba($color: #000, $alpha: 0.1);
+            transition: 0.5s;
+            // td {
+            //   color: ;
+            //   transition: 0.3s;
+            // }
+          }
         }
       }
     }

@@ -10,3 +10,21 @@ export interface UserDetails {
   password: string;
   cid: string;
 }
+
+export interface FacultyDetails {
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  dob: string;
+  id: string;
+}
+
+export interface StudentDetails {
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  dob: string;
+  id: string;
+}

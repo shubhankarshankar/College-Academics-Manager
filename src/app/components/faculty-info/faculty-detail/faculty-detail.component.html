@@ -1,0 +1,62 @@
+<app-main-nav>
+  <div class="faculty-wrapper">
+    <div class="inner-wrapper">
+      <div class="page-header">
+        <div class="mat-display-2 comp-header">Faculty Details</div>
+        <button
+          mat-raised-button
+          (click)="goBack()"
+          color="accent"
+          style="height: fit-content"
+        >
+          Go Back
+        </button>
+      </div>
+      <div class="faculty-content">
+        <mat-card class="faculty-card">
+          <mat-card-content>
+            <div class="faculty-inner">
+              <div class="faculty-img">
+                <mat-icon style="font-size: 250px" color="primary"
+                  >person</mat-icon
+                >
+              </div>
+              <div class="faculty-details">
+                <mat-card-title class="name">{{
+                  facultyDetails?.name
+                }}</mat-card-title>
+
+                <div class="deets">
+                  <strong>ID:</strong> &nbsp; {{ facultyDetails?.id }}
+                </div>
+                <div class="deets">
+                  <strong>Phone Number:</strong> &nbsp;
+                  {{ facultyDetails?.phone }}
+                </div>
+                <div class="deets">
+                  <strong>Email:</strong> &nbsp; {{ facultyDetails?.email }}
+                </div>
+                <div class="deets">
+                  <strong>Address:</strong> &nbsp; {{ facultyDetails?.address }}
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions *ngIf="role === 'Admin'">
+            <button
+              mat-raised-button
+              color="primary"
+              id="update-btn"
+              (click)="updateDetails()"
+            >
+              Update Faculty Details
+            </button>
+            <button mat-button color="warn">Delete Faculty</button>
+          </mat-card-actions>
+        </mat-card>
+
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</app-main-nav>

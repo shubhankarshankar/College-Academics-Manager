@@ -1,0 +1,58 @@
+<div class="faculty-update-form-wrapper">
+  <div class="inner-wrapper">
+    <div class="form-wrapper">
+      <form (ngSubmit)="updateFaculty()" [formGroup]="updateFacultyForm">
+        <mat-card class="update-card">
+          <mat-card-header>
+            <mat-card-title>
+              <span class="mat-display-1">Update Details</span>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-form-field appearance="outline" class="input-fields">
+              <mat-label>Name</mat-label>
+              <input
+                matInput
+                formControlName="name"
+                placeholder="Enter Full Name"
+              />
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="outline" class="input-fields">
+              <mat-label>Email</mat-label>
+              <input
+                formControlName="email"
+                matInput
+                placeholder="Enter Email"
+              />
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="outline" class="input-fields">
+              <mat-label>Phone Number</mat-label>
+              <input
+                formControlName="phno"
+                matInput
+                placeholder="Enter Phone Number"
+              />
+            </mat-form-field>
+            <br />
+            <mat-form-field class="input-fields" appearance="outline">
+              <mat-label>Address</mat-label>
+              <textarea
+                formControlName="address"
+                matInput
+                placeholder="Enter your address"
+              ></textarea>
+            </mat-form-field>
+          </mat-card-content>
+          <mat-card-actions class="crd-actions">
+            <button mat-raised-button color="primary" type="submit">
+              Confirm Update
+            </button>
+            <button mat-button color="warn" (click)="onCancel()">Cancel</button>
+          </mat-card-actions>
+        </mat-card>
+      </form>
+    </div>
+  </div>
+</div>

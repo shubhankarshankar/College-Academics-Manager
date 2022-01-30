@@ -12,6 +12,11 @@ import { MarksComponent } from './components/marks/marks.component';
 import { AttendanceComponent } from './components/attendance/attendance.component';
 import { AssignmentsComponent } from './components/assignments/assignments.component';
 import { AuthenticationGuard } from './_guards/authentication.guard';
+import { FacultyDetailComponent } from './components/faculty-info/faculty-detail/faculty-detail.component';
+import { ClassesComponent } from './components/classes/classes.component';
+import { FacultyDetailsUpdateComponent } from './components/faculty-info/faculty-details-update/faculty-details-update.component';
+import { StudentDetailsComponent } from './components/student-info/student-details/student-details.component';
+import { StudentDetailsUpdateComponent } from './components/student-info/student-details-update/student-details-update.component';
 
 const routes: Routes = [
   {
@@ -73,6 +78,28 @@ const routes: Routes = [
     canActivate: [AuthenticationGuard],
   },
   {
+    path: 'faculty-info/:id',
+    component: FacultyDetailComponent,
+    canActivate: [AuthenticationGuard],
+    children: [
+      {
+        path: 'update',
+        component: FacultyDetailsUpdateComponent,
+      },
+    ],
+  },
+  {
+    path: 'student-info/:id',
+    component: StudentDetailsComponent,
+    canActivate: [AuthenticationGuard],
+    children: [
+      {
+        path: 'update',
+        component: StudentDetailsUpdateComponent,
+      },
+    ],
+  },
+  {
     path: 'announcements',
     loadChildren: () =>
       import('./routing_modules/announcements/announcements.module').then(
@@ -107,6 +134,10 @@ const routes: Routes = [
     redirectTo: 'dashboard',
     pathMatch: 'full',
   },
+  {
+    path: '**',
+    redirectTo: 'dashboard',
+  },
 ];
 
 @NgModule({
@@ -128,4 +159,8 @@ export const routingComponents = [
   MarksComponent,
   AttendanceComponent,
   AssignmentsComponent,
+  FacultyDetailComponent,
+  ClassesComponent,
+  StudentDetailsComponent,
+  StudentDetailsUpdateComponent,
 ];
