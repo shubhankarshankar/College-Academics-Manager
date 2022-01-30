@@ -3,6 +3,7 @@ import { UserDetails } from 'src/app/interfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { UserService } from 'src/app/_services/user.service';
 import { UpdateProfileDialogComponent } from './update-profile-dialog/update-profile-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -12,7 +13,11 @@ import { UpdateProfileDialogComponent } from './update-profile-dialog/update-pro
 export class ProfileComponent implements OnInit {
   currentUser: UserDetails;
 
-  constructor(private userService: UserService, public dialog: MatDialog) {}
+  constructor(
+    private userService: UserService,
+    public dialog: MatDialog,
+    private router: Router
+  ) {}
 
   openDialog() {
     const dialogRef = this.dialog.open(UpdateProfileDialogComponent);
@@ -20,6 +25,10 @@ export class ProfileComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  updateProfile() {
+    this.router.navigateByUrl(`profile/update/${this.currentUser.id}`);
   }
 
   ngOnInit(): void {

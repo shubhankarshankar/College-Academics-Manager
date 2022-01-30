@@ -1,1 +1,64 @@
-<p>update-profile works!</p>
+<mat-card class="update-profile-card-wrapper">
+  <mat-card-header>
+    <mat-card-title>
+      <div class="mat-display-1" style="margin: 0">Enter New Details</div>
+    </mat-card-title>
+    <mat-card-subtitle> Leave Uncahnged Fields Empty. </mat-card-subtitle>
+  </mat-card-header>
+  <form (ngSubmit)="onUpdateProfile()" [formGroup]="updateProfileForm">
+    <mat-card-content>
+      <mat-form-field appearance="outline" class="input-fields">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" placeholder="Enter Full Name" />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline" class="input-fields">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput placeholder="Enter Email" />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline" class="input-fields">
+        <mat-label>Phone Number</mat-label>
+        <input
+          formControlName="phno"
+          matInput
+          placeholder="Enter Phone Number"
+        />
+      </mat-form-field>
+      <br />
+      <div class="fg">
+        <mat-form-field appearance="outline">
+          <mat-label>Gender</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option *ngFor="let gender of genders" [value]="gender.value">
+              {{ gender.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="datepicker" formControlName="dob" />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="datepicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #datepicker> </mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field class="input-fields" appearance="outline">
+        <mat-label>Address</mat-label>
+        <textarea
+          formControlName="address"
+          matInput
+          placeholder="Enter your address"
+        ></textarea>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions class="action-wrapper" align="end">
+      <button type="submit" mat-raised-button color="primary">
+        Confirm Update
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

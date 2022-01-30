@@ -1,0 +1,13 @@
+.update-profile-card-wrapper {
+  margin-top: 2rem;
+  max-width: 800px;
+  .fg {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .input-fields {
+    width: 100%;
+  }
+}
