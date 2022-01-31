@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -14,8 +14,14 @@ import { Router } from '@angular/router';
 export class MainNavComponent {
   role: string | null | undefined = null;
 
+  facId: string | null = null;
+
   ngOnInit() {
     this.role = this.userService.getCurrentUser()?.role;
+    this.facId =
+      this.role === 'Faculty' ? this.userService.getCurrentUser()?.cid : null;
+
+    console.log(this.facId);
   }
 
   isHandset$: Observable<boolean> = this.breakpointObserver

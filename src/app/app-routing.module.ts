@@ -23,6 +23,8 @@ import { FacultyInfoAddComponent } from './components/faculty-info/faculty-info-
 import { StudentInfoAddComponent } from './components/student-info/student-info-add/student-info-add.component';
 import { AssignmentDetailsComponent } from './components/assignments/assignment-details/assignment-details.component';
 import { ClassDetailsComponent } from './components/classes/class-details/class-details.component';
+import { FacultyClassesComponent } from './components/classes/faculty-classes/faculty-classes.component';
+import { AssignmentCreateComponent } from './components/assignments/assignment-create/assignment-create.component';
 
 const routes: Routes = [
   {
@@ -55,6 +57,11 @@ const routes: Routes = [
   {
     path: 'classes/details/:id',
     component: ClassDetailsComponent,
+    canActivate: [AuthenticationGuard],
+  },
+  {
+    path: 'classes/:facId',
+    component: FacultyClassesComponent,
     canActivate: [AuthenticationGuard],
   },
   {
@@ -131,6 +138,11 @@ const routes: Routes = [
   {
     path: 'assignments/:id',
     component: AssignmentDetailsComponent,
+    canActivate: [AuthenticationGuard],
+  },
+  {
+    path: 'assignments/create/:classId',
+    component: AssignmentCreateComponent,
     canActivate: [AuthenticationGuard],
   },
   {

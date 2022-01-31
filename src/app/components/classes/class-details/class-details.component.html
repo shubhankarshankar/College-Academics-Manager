@@ -26,7 +26,7 @@
                 }}</mat-card-title>
 
                 <div class="deets">
-                  <strong>ID:</strong> &nbsp; {{ classDetails?.id }}
+                  <strong>ID:</strong> &nbsp; {{ classDetails.id }}
                 </div>
 
                 <div class="deets">
@@ -36,18 +36,22 @@
             </div>
           </mat-card-content>
 
-          <!-- <mat-card-actions *ngIf="role === 'Admin'" align="end">
-            <button mat-button color="warn">Delete Student</button>
+          <mat-card-actions *ngIf="role === 'Faculty'" align="end">
+            <!-- <button mat-button color="accent">
+              <mat-icon>visibility</mat-icon>
+              View Assignment Answers
+            </button> -->
 
-            <button
-              mat-raised-button
-              color="primary"
-              id="update-btn"
-              (click)="updateDetails()"
+            <a
+              routerLink="/assignments/create/{{ classDetails.id }}"
+              style="color: inherit; text-decoration: none"
             >
-              Update Student Details
-            </button>
-          </mat-card-actions> -->
+              <button mat-raised-button color="primary" id="update-btn">
+                <mat-icon>add</mat-icon>
+                Create Assignment
+              </button>
+            </a>
+          </mat-card-actions>
         </mat-card>
 
         <div class="comp-content-wrapper" style="margin-top: 2rem">
@@ -111,6 +115,25 @@
                     </td>
                   </ng-container>
 
+                  <ng-container matColumnDef="assignmentAnswer">
+                    <th
+                      style="color: white; text-align: center"
+                      mat-header-cell
+                      *matHeaderCellDef
+                    >
+                      ASSIGNMENT ANSWER
+                    </th>
+                    <td
+                      mat-cell
+                      *matCellDef="let element"
+                      style="text-align: center"
+                    >
+                      <button mat-icon-button>
+                        <mat-icon color="accent">file_download</mat-icon>
+                      </button>
+                    </td>
+                  </ng-container>
+
                   <tr
                     mat-header-row
                     style="background-color: #3f51b5"
@@ -121,6 +144,10 @@
                     class="rr"
                     *matRowDef="let row; columns: displayedColumns"
                   ></tr>
+                  <tr mat-row>
+                    <th>jj</th>
+                    <td>gg</td>
+                  </tr>
                 </table>
                 <mat-paginator
                   [pageSize]="5"

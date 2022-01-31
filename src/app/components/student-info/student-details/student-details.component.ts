@@ -22,6 +22,8 @@ export class StudentDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log(this.route);
+
     this.route.params.subscribe((params) => (this.studentId = params['id']));
     this.studentDetails = this.studentInfoService.getStudentById(
       this.studentId

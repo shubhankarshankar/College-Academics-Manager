@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit {
 
   todayTime: number;
   message: string;
+  id: string;
   data: any;
   role: string;
   name: string;
@@ -30,6 +31,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.role = this.userService.getCurrentUser().role;
     this.name = this.userService.getCurrentUser().name;
+    this.id = this.userService.getCurrentUser().cid;
     this.data = new MatTableDataSource(
       this.announcementService.getAllAnnouncements()
     );

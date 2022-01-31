@@ -23,9 +23,10 @@ export class ClassDetailsComponent implements OnInit {
 
   role: string;
   classId: string;
+  facId: string | null = null;
   classDetails: any;
   data: any;
-  displayedColumns: string[] = ['name', 'email', 'phone'];
+  displayedColumns: string[];
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -35,11 +36,17 @@ export class ClassDetailsComponent implements OnInit {
     if (this.role === 'Student') {
       this.router.navigateByUrl('/');
     }
-
+    this.facId =
+      this.role === 'Faculty' ? this.userService.getCurrentUser()?.cid : null;
     this.route.params.subscribe((params) => (this.classId = params['id']));
     this.classDetails = this.classService.getClassById(this.classId);
 
     if (this.classDetails == null) this.router.navigateByUrl('/classes/all');
+
+    this.displayedColumns =
+      this.role === 'Admin'
+        ? ['name', 'email', 'phone']
+        : ['name', 'email', 'phone', 'assignmentAnswer'];
 
     this.createStudentTable();
   }
@@ -54,7 +61,8 @@ export class ClassDetailsComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigateByUrl('/classes/all');
+    if (this.role === 'Admin') this.router.navigateByUrl('/classes/all');
+    else this.router.navigateByUrl(`/classes/${this.facId}`);
   }
 
   doFilter(event: Event) {

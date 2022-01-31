@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ClassDetails } from '../components/classes/classes.component';
-import { classDetails } from '../constants/contants';
+import { classDetails, facultyClasses } from '../constants/contants';
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +8,10 @@ import { classDetails } from '../constants/contants';
 export class ClassService {
   getallClasses() {
     return classDetails;
+  }
+
+  getFacultyClasses() {
+    return facultyClasses;
   }
 
   getClassById(id: string) {

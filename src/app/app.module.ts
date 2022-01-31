@@ -19,6 +19,8 @@ import { FacultyInfoAddComponent } from './components/faculty-info/faculty-info-
 import { StudentInfoAddComponent } from './components/student-info/student-info-add/student-info-add.component';
 import { AssignmentDetailsComponent } from './components/assignments/assignment-details/assignment-details.component';
 import { ClassDetailsComponent } from './components/classes/class-details/class-details.component';
+import { FacultyClassesComponent } from './components/classes/faculty-classes/faculty-classes.component';
+import { AssignmentCreateComponent } from './components/assignments/assignment-create/assignment-create.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { ClassDetailsComponent } from './components/classes/class-details/class-
     StudentInfoAddComponent,
     AssignmentDetailsComponent,
     ClassDetailsComponent,
+    FacultyClassesComponent,
+    AssignmentCreateComponent,
   ],
   imports: [
     BrowserModule,
