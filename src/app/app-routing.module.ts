@@ -21,6 +21,8 @@ import { AnnouncementAddComponent } from './components/announcements/announcemen
 import { AnnouncementUpdateComponent } from './components/announcements/announcement-update/announcement-update.component';
 import { FacultyInfoAddComponent } from './components/faculty-info/faculty-info-add/faculty-info-add.component';
 import { StudentInfoAddComponent } from './components/student-info/student-info-add/student-info-add.component';
+import { AssignmentDetailsComponent } from './components/assignments/assignment-details/assignment-details.component';
+import { ClassDetailsComponent } from './components/classes/class-details/class-details.component';
 
 const routes: Routes = [
   {
@@ -44,11 +46,16 @@ const routes: Routes = [
     canActivate: [AuthenticationGuard],
   },
   {
-    path: 'classes',
+    path: 'classes/all',
     loadChildren: () =>
       import('./routing_modules/classes/classes.module').then(
         (m) => m.ClassesModule
       ),
+  },
+  {
+    path: 'classes/details/:id',
+    component: ClassDetailsComponent,
+    canActivate: [AuthenticationGuard],
   },
   {
     path: 'profile',
@@ -119,6 +126,11 @@ const routes: Routes = [
       import('./routing_modules/announcements/announcements.module').then(
         (m) => m.AnnouncementsModule
       ),
+    canActivate: [AuthenticationGuard],
+  },
+  {
+    path: 'assignments/:id',
+    component: AssignmentDetailsComponent,
     canActivate: [AuthenticationGuard],
   },
   {

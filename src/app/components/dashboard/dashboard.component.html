@@ -45,7 +45,7 @@
               <span class="mat-display-4 stat-num">24</span>
             </mat-card-content>
             <mat-card-actions style="text-align: center">
-              <a routerLink="/classes">
+              <a routerLink="/classes/all">
                 <button mat-raised-button color="primary">All Classes</button>
               </a>
             </mat-card-actions>
@@ -56,10 +56,10 @@
             *ngIf="role === 'Student' || role === 'Faculty'"
           >
             <mat-card-title style="text-align: center"
-              >Your Attendance</mat-card-title
+              >New Announcements</mat-card-title
             >
             <mat-card-content style="text-align: center; margin-top: 30px">
-              <span class="mat-display-4 stat-num">87%</span>
+              <span class="mat-display-4 stat-num">3</span>
             </mat-card-content>
             <mat-card-actions style="text-align: center">
               <!-- <a routerLink="/attendance">
@@ -68,7 +68,7 @@
                 </button>
               </a>  -->
               <span style="cursor: text" class="mat-button"
-                >Days Present: 36</span
+                >All Announcements: 8</span
               >
             </mat-card-actions>
           </mat-card>
@@ -92,7 +92,7 @@
               >Assignments Due</mat-card-title
             >
             <mat-card-content style="text-align: center; margin-top: 30px">
-              <span class="mat-display-4 stat-num">9</span>
+              <span class="mat-display-4 stat-num">5</span>
             </mat-card-content>
             <mat-card-actions style="text-align: center">
               <a routerLink="/assignments">

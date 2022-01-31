@@ -1,0 +1,62 @@
+<app-main-nav>
+  <div class="assignment-wrapper">
+    <div class="inner-wrapper">
+      <div class="page-header">
+        <div class="mat-display-2 comp-header">Assignment Details</div>
+        <button
+          mat-raised-button
+          (click)="goBack()"
+          color="accent"
+          style="height: fit-content"
+        >
+          <mat-icon>arrow_back</mat-icon>
+          Go Back
+        </button>
+      </div>
+      <div class="assignment-content">
+        <mat-card class="assignment-card">
+          <mat-card-content>
+            <div class="assignment-inner">
+              <div class="assignment-details">
+                <mat-card-title class="name">{{
+                  assignmentDetails?.assignmentTitle
+                }}</mat-card-title>
+
+                <div class="deets">
+                  <strong>Subject Name:</strong> &nbsp;
+                  {{ assignmentDetails?.subjectName }}
+                </div>
+                <div class="deets">
+                  <strong>Faculty Name:</strong> &nbsp;
+                  {{ assignmentDetails?.facultyName }}
+                </div>
+                <div class="deets">
+                  <strong>Due Date:</strong> &nbsp;
+                  {{ assignmentDetails?.dueBy?.getDate() }} /
+                  {{ assignmentDetails?.dueBy?.getMonth() }} /
+                  {{ assignmentDetails?.dueBy?.getFullYear() }}
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+
+          <mat-card-actions align="end">
+            <button mat-button color="accent">View Question</button>
+
+            <input type="file" hidden #file />
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="file.click()"
+              id="update-btn"
+            >
+              Upload Answer
+            </button>
+          </mat-card-actions>
+        </mat-card>
+
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</app-main-nav>

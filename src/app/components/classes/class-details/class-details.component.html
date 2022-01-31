@@ -1,0 +1,137 @@
+<app-main-nav>
+  <div class="student-wrapper">
+    <div class="inner-wrapper">
+      <div
+        class="page-header"
+        style="display: flex; justify-content: space-between"
+      >
+        <div class="mat-display-2 comp-header">Class Details</div>
+        <button
+          mat-raised-button
+          (click)="goBack()"
+          color="accent"
+          style="height: fit-content"
+        >
+          <mat-icon>arrow_back</mat-icon>
+          Go Back
+        </button>
+      </div>
+      <div class="student-content">
+        <mat-card class="student-card">
+          <mat-card-content>
+            <div class="student-inner">
+              <div class="student-details">
+                <mat-card-title class="name">{{
+                  classDetails?.subjectName
+                }}</mat-card-title>
+
+                <div class="deets">
+                  <strong>ID:</strong> &nbsp; {{ classDetails?.id }}
+                </div>
+
+                <div class="deets">
+                  <strong>Faculty Name:</strong> &nbsp; {{ classDetails?.name }}
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+
+          <!-- <mat-card-actions *ngIf="role === 'Admin'" align="end">
+            <button mat-button color="warn">Delete Student</button>
+
+            <button
+              mat-raised-button
+              color="primary"
+              id="update-btn"
+              (click)="updateDetails()"
+            >
+              Update Student Details
+            </button>
+          </mat-card-actions> -->
+        </mat-card>
+
+        <div class="comp-content-wrapper" style="margin-top: 2rem">
+          <div class="content-inner-wrapper">
+            <mat-form-field appearance="outline" style="width: 100%">
+              <mat-label>Search Student</mat-label>
+              <input
+                matInput
+                type="text"
+                (keyup)="doFilter($event)"
+                placeholder="Enter Student Details"
+              />
+            </mat-form-field>
+            <mat-card class="table-card" style="padding: 0">
+              <mat-card-content>
+                <table
+                  mat-table
+                  [dataSource]="data"
+                  matSort
+                  matSortActive="name"
+                  matSortDirection="asc"
+                  style="width: 100%"
+                >
+                  <ng-container matColumnDef="name">
+                    <th
+                      style="color: white"
+                      mat-header-cell
+                      *matHeaderCellDef
+                      mat-sort-header
+                    >
+                      NAME
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.name }}
+                    </td>
+                  </ng-container>
+                  <ng-container matColumnDef="email">
+                    <th
+                      style="color: white"
+                      mat-header-cell
+                      *matHeaderCellDef
+                      mat-sort-header
+                    >
+                      EMAIL
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.email }}
+                    </td>
+                  </ng-container>
+                  <ng-container matColumnDef="phone">
+                    <th
+                      style="color: white"
+                      mat-header-cell
+                      *matHeaderCellDef
+                      mat-sort-header
+                    >
+                      PHONE
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.phone }}
+                    </td>
+                  </ng-container>
+
+                  <tr
+                    mat-header-row
+                    style="background-color: #3f51b5"
+                    *matHeaderRowDef="displayedColumns"
+                  ></tr>
+                  <tr
+                    mat-row
+                    class="rr"
+                    *matRowDef="let row; columns: displayedColumns"
+                  ></tr>
+                </table>
+                <mat-paginator
+                  [pageSize]="5"
+                  [pageSizeOptions]="[2, 4, 6, 10, 20, 50]"
+                >
+                </mat-paginator>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-main-nav>

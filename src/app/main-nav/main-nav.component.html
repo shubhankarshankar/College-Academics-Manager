@@ -24,16 +24,19 @@
         Announcements</a
       >
       <br />
-      <a mat-list-item routerLink="/assignments"
-        ><mat-icon color="warn">assignment</mat-icon> &nbsp; &nbsp;
-        Assignments</a
-      >
-      <br />
-      <a mat-list-item routerLink="/attendance"
+      <ng-container *ngIf="role === 'Student'">
+        <a mat-list-item routerLink="/assignments"
+          ><mat-icon color="warn">assignment</mat-icon> &nbsp; &nbsp;
+          Assignments</a
+        >
+        <br />
+      </ng-container>
+
+      <!-- <a mat-list-item routerLink="/attendance"
         ><mat-icon color="warn">how_to_reg</mat-icon> &nbsp; &nbsp;
         Attendance</a
       >
-      <br />
+      <br /> -->
       <ng-container>
         <a mat-list-item routerLink="/faculty-info"
           ><mat-icon color="warn">contact_mail</mat-icon> &nbsp; &nbsp; Faculty
@@ -48,6 +51,12 @@
         >
         <br />
       </ng-container>
+      <ng-container *ngIf="role === 'Admin'">
+        <a mat-list-item routerLink="/classes/all"
+          ><mat-icon color="warn">groups</mat-icon> &nbsp; &nbsp; All Classes</a
+        >
+        <br />
+      </ng-container>
       <ng-container *ngIf="role === 'Faculty'">
         <a mat-list-item routerLink="/classes"
           ><mat-icon color="warn">groups</mat-icon> &nbsp; &nbsp; Your
@@ -55,10 +64,13 @@
         >
         <br />
       </ng-container>
-      <a mat-list-item routerLink="/marks"
-        ><mat-icon color="warn">school</mat-icon> &nbsp; &nbsp; Marks</a
-      >
-      <br />
+      <ng-container *ngIf="role === 'Student'">
+        <a mat-list-item routerLink="/marks"
+          ><mat-icon color="warn">school</mat-icon> &nbsp; &nbsp; Marks</a
+        >
+        <br />
+      </ng-container>
+
       <a mat-list-item routerLink="/contact"
         ><mat-icon color="warn">contact_support</mat-icon> &nbsp; &nbsp; Contact
         Support</a

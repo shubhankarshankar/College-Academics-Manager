@@ -1,0 +1,43 @@
+.assignment-wrapper {
+  .inner-wrapper {
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+    }
+    .assignment-content {
+      .assignment-card {
+        max-width: 800px;
+        height: fit-content;
+        .assignment-inner {
+          display: flex;
+          align-items: center;
+          @media screen and (max-width: 768px) {
+            flex-direction: column;
+          }
+          .assignment-img {
+            width: 250px;
+          }
+
+          .assignment-details {
+            .name {
+              font-size: 30px;
+              margin: 5px 0 30px 0;
+            }
+            .deets {
+              font-size: 15px;
+              margin: 5px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+:host {
+  ::ng-deep {
+    .mat-card > .mat-card-actions:last-child {
+      margin: 0;
+    }
+  }
+}

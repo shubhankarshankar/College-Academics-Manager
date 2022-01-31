@@ -35,9 +35,9 @@ export class DashboardComponent implements OnInit {
     );
     this.todayTime = new Date().getHours();
     this.message =
-      this.todayTime < 12
+      this.todayTime < 12 && this.todayTime > 4
         ? 'Good Morning'
-        : this.todayTime < 17
+        : this.todayTime < 17 && this.todayTime > 12
         ? 'Good Afternoon'
         : 'Good Evening';
   }

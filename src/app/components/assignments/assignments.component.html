@@ -1,1 +1,127 @@
-<app-main-nav> <div class="mat-display-2">Assignments</div> </app-main-nav>
+<app-main-nav>
+  <div class="studinfo-wrapper">
+    <div class="inner-wrapper">
+      <div class="page-header">
+        <div class="mat-display-2 comp-header">Assignments</div>
+      </div>
+      <div class="comp-content-wrapper">
+        <div class="content-inner-wrapper">
+          <!-- <mat-form-field appearance="outline" style="width: 100%">
+            <mat-label>Search Student</mat-label>
+            <input
+              matInput
+              type="text"
+              (keyup)="doFilter($event)"
+              placeholder="Enter Student Details"
+            />
+          </mat-form-field> -->
+          <mat-card class="table-card" style="padding: 0">
+            <mat-card-content>
+              <table mat-table [dataSource]="data" style="width: 100%">
+                <ng-container matColumnDef="classId">
+                  <th
+                    style="color: white; text-align: center"
+                    mat-header-cell
+                    *matHeaderCellDef
+                  >
+                    CLASS ID
+                  </th>
+                  <td
+                    mat-cell
+                    style="width: 30%; text-align: center"
+                    *matCellDef="let element"
+                  >
+                    {{ element.classId }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="subjectName">
+                  <th
+                    style="color: white; text-align: center"
+                    mat-header-cell
+                    *matHeaderCellDef
+                  >
+                    SUBJECT NAME
+                  </th>
+                  <td
+                    mat-cell
+                    style="text-align: center"
+                    *matCellDef="let element"
+                  >
+                    {{ element.subjectName }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="assignmentTitle">
+                  <th
+                    style="color: white; text-align: center"
+                    mat-header-cell
+                    *matHeaderCellDef
+                  >
+                    TITLE
+                  </th>
+                  <td
+                    mat-cell
+                    style="text-align: center"
+                    *matCellDef="let element"
+                  >
+                    {{ element.assignmentTitle }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="facultyName">
+                  <th
+                    style="color: white; text-align: center"
+                    mat-header-cell
+                    *matHeaderCellDef
+                  >
+                    FACULTY NAME
+                  </th>
+                  <td
+                    mat-cell
+                    style="text-align: center"
+                    *matCellDef="let element"
+                  >
+                    {{ element.facultyName }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="dueBy">
+                  <th
+                    style="color: white; text-align: center"
+                    mat-header-cell
+                    *matHeaderCellDef
+                  >
+                    DUE BY
+                  </th>
+                  <td
+                    mat-cell
+                    style="text-align: center"
+                    *matCellDef="let element"
+                  >
+                    {{ element.dueBy.getDate() }} /
+                    {{ element.dueBy.getMonth() }} /
+                    {{ element.dueBy.getFullYear() }}
+                  </td>
+                </ng-container>
+
+                <tr
+                  mat-header-row
+                  style="background-color: #3f51b5"
+                  *matHeaderRowDef="displayedColumns"
+                ></tr>
+                <tr
+                  mat-row
+                  class="rr"
+                  (click)="onAssignmentClick(row)"
+                  *matRowDef="let row; columns: displayedColumns"
+                ></tr>
+              </table>
+              <mat-paginator
+                [pageSize]="10"
+                [pageSizeOptions]="[2, 4, 6, 10, 20, 50]"
+              >
+              </mat-paginator>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-main-nav>

@@ -1,0 +1,11 @@
+.table-card {
+  padding: 0;
+  .rr {
+    cursor: pointer;
+  }
+
+  .rr:hover {
+    background-color: rgba($color: #000, $alpha: 0.05);
+    transition: 0.2s;
+  }
+}
