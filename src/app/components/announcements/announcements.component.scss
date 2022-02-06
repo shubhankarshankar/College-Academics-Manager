@@ -5,9 +5,13 @@
 }
 .comp-content-wrapper {
   .table-card {
-    overflow: scroll;
+    @media screen and (max-width: 750px) {
+      overflow: scroll;
+    }
+
     padding: 0;
     table {
+      width: 100%;
       .rr {
         cursor: pointer;
       }

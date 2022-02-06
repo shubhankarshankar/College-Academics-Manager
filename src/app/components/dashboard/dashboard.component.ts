@@ -32,6 +32,7 @@ export class DashboardComponent implements OnInit {
   facCount: number;
   stuCount: number;
   displayedColumns: string[] = ['title', 'body'];
+  break: Boolean = screen.availWidth < 960;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {

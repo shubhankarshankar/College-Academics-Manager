@@ -10,6 +10,9 @@
     .comp-content-wrapper {
       .content-inner-wrapper {
         .table-card {
+          @media screen and (max-width: 750px) {
+            overflow: scroll;
+          }
           padding: 0;
           .rr {
             cursor: pointer;

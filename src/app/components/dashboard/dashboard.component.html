@@ -5,6 +5,7 @@
         <span class="mat-display-3" style="color: #ff4081"
           >{{ message }},&nbsp;</span
         >
+        <br *ngIf="break" />
         <span class="mat-display-3">{{ name }}</span>
       </div>
       <div class="content-wrapper">
@@ -113,7 +114,12 @@
           </div>
           <mat-card class="table-card" style="padding: 0">
             <mat-card-content>
-              <table mat-table [dataSource]="data" matSort style="width: 100%">
+              <table
+                mat-table
+                [dataSource]="data"
+                matSort
+                class="dash-announcement-table"
+              >
                 <ng-container matColumnDef="title">
                   <th mat-header-cell *matHeaderCellDef style="color: white">
                     TITLE
