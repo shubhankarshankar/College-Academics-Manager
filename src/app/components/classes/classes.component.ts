@@ -28,7 +28,7 @@ export class ClassesComponent implements OnInit {
 
   role: string;
   data: any;
-  displayedColumns: string[] = ['id', 'subjectName', 'name'];
+  displayedColumns: string[] = ['_id', 'subject', 'faculty.name'];
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -40,17 +40,21 @@ export class ClassesComponent implements OnInit {
     this.getAllClasses();
   }
 
-  ngAfterViewInit() {
-    this.data.sort = this.sort;
-    this.data.paginator = this.paginator;
-  }
-
   getAllClasses() {
-    this.data = new MatTableDataSource(this.classService.getallClasses());
+    this.classService.getallClasses().subscribe({
+      next: (data) => {
+        this.data = new MatTableDataSource(data as []);
+        this.data.sort = this.sort;
+        this.data.paginator = this.paginator;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
-  onRowClick(row: ClassDetails) {
-    this.router.navigateByUrl(`classes/details/${row.id}`);
+  onRowClick(row: any) {
+    this.router.navigateByUrl(`classes/details/${row._id}`);
   }
 
   doFilter(event: Event) {

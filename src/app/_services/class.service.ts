@@ -1,28 +1,42 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ClassDetails } from '../components/classes/classes.component';
-import { classDetails, facultyClasses } from '../constants/contants';
+import { Observable } from 'rxjs';
+import { TokenStorageService } from './token-storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClassService {
-  getallClasses() {
-    return classDetails;
+  baseUrl = 'http://localhost:3000/api/class/';
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'auth-token': this.tokenStorageService.getToken(),
+    }),
+  };
+
+  getallClasses(): Observable<any> {
+    return this.http.get(this.baseUrl, this.httpOptions);
   }
 
-  getFacultyClasses() {
-    return facultyClasses;
+  getFacultyClasses(facId: string): Observable<any> {
+    return this.http.get(this.baseUrl + `faculty/${facId}`, this.httpOptions);
   }
 
-  getClassById(id: string) {
-    for (let i = 0; i < this.getallClasses().length; i++) {
-      if (this.getallClasses()[i].id == id) {
-        return this.getallClasses()[i];
-      }
-    }
-
-    return null;
+  getClassById(id: string): Observable<any> {
+    return this.http.get(this.baseUrl + `details/${id}`, this.httpOptions);
   }
 
-  constructor() {}
+  getClassCount(): Observable<any> {
+    return this.http.get(this.baseUrl + `count`, this.httpOptions);
+  }
+
+  deleteClass(id: string): Observable<any> {
+    return this.http.delete(this.baseUrl + `${id}`, this.httpOptions);
+  }
+
+  constructor(
+    private http: HttpClient,
+    private tokenStorageService: TokenStorageService
+  ) {}
 }

@@ -1,5 +1,15 @@
 .table-card {
   @media screen and (max-width: 750px) {
     overflow: scroll;
+    padding: 0;
   }
+}
+
+.rr {
+  cursor: pointer;
+}
+
+.rr:hover {
+  background-color: rgba($color: #000, $alpha: 0.05);
+  transition: 0.2s;
 }

@@ -25,6 +25,7 @@ import { AssignmentDetailsComponent } from './components/assignments/assignment-
 import { ClassDetailsComponent } from './components/classes/class-details/class-details.component';
 import { FacultyClassesComponent } from './components/classes/faculty-classes/faculty-classes.component';
 import { AssignmentCreateComponent } from './components/assignments/assignment-create/assignment-create.component';
+import { ClassStudentComponent } from './components/classes/class-student/class-student.component';
 
 const routes: Routes = [
   {
@@ -57,6 +58,12 @@ const routes: Routes = [
   {
     path: 'classes/details/:id',
     component: ClassDetailsComponent,
+    canActivate: [AuthenticationGuard],
+  },
+
+  {
+    path: 'classes/details/:classId/:studentId',
+    component: ClassStudentComponent,
     canActivate: [AuthenticationGuard],
   },
   {
@@ -220,4 +227,5 @@ export const routingComponents = [
   FacultyClassesComponent,
   AssignmentCreateComponent,
   FacultyDetailsUpdateComponent,
+  ClassStudentComponent,
 ];

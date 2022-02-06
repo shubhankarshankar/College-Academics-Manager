@@ -7,6 +7,7 @@ import { UserService } from 'src/app/_services/user.service';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-class-details',
@@ -18,7 +19,8 @@ export class ClassDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private classService: ClassService,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private _snackBar: MatSnackBar
   ) {}
 
   role: string;
@@ -39,25 +41,51 @@ export class ClassDetailsComponent implements OnInit {
     this.facId =
       this.role === 'Faculty' ? this.userService.getCurrentUser()?.cid : null;
     this.route.params.subscribe((params) => (this.classId = params['id']));
-    this.classDetails = this.classService.getClassById(this.classId);
 
-    if (this.classDetails == null) this.router.navigateByUrl('/classes/all');
+    this.displayedColumns = ['name', 'email', 'phone'];
 
-    this.displayedColumns =
-      this.role === 'Admin'
-        ? ['name', 'email', 'phone']
-        : ['name', 'email', 'phone', 'assignmentAnswer'];
-
-    this.createStudentTable();
+    this.getClassDetailsById();
   }
 
-  ngAfterViewInit() {
-    this.data.sort = this.sort;
-    this.data.paginator = this.paginator;
+  getClassDetailsById() {
+    this.classService.getClassById(this.classId).subscribe({
+      next: (data) => {
+        this.classDetails = data;
+        this.createStudentTable();
+        this.data.sort = this.sort;
+        this.data.paginator = this.paginator;
+      },
+      error: (err) => {
+        this.goBack();
+      },
+    });
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, { duration: 3000 });
   }
 
   createStudentTable() {
     this.data = new MatTableDataSource(this.classDetails.students);
+  }
+
+  onDeleteClass() {
+    if (confirm('Are you sure? this cannot be undone.') === true) {
+      this.classService.deleteClass(this.classId).subscribe({
+        next: (data) => {
+          this.openSnackBar('Classroom Deleted', 'Dismiss');
+          this.goBack();
+        },
+        error: (err) => {
+          console.log(err);
+          this.openSnackBar('Something Went Wrong', 'Dismiss');
+        },
+      });
+    }
+  }
+
+  onRowClick(row: any) {
+    this.router.navigate([`classes/details/${this.classId}/${row._id}`]);
   }
 
   goBack() {

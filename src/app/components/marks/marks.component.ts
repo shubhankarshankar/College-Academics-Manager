@@ -1,3 +1,4 @@
+import { identifierName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
@@ -17,16 +18,28 @@ export class MarksComponent implements OnInit {
   ) {}
 
   role: string;
+  isAnyMarks: boolean = false;
+  stuId: string;
   data: any;
-  displayedColumns: string[] = ['classId', 'subjectName', 'totalMarks'];
+  displayedColumns: string[] = ['class._id', 'class.subject', 'marks'];
 
   ngOnInit(): void {
     this.role = this.userService.getCurrentUser().role;
+    this.stuId = this.userService.getCurrentUser().cid;
     if (this.role != 'Student') this.router.navigateByUrl('/');
     this.getMarks();
   }
 
   getMarks() {
-    this.data = new MatTableDataSource(this.marksService.getMarks());
+    this.marksService.getMarks(this.stuId).subscribe({
+      next: (data) => {
+        if (data.marks.length > 0) this.isAnyMarks = true;
+
+        this.data = new MatTableDataSource(data.marks as []);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }

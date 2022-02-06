@@ -8,6 +8,7 @@ import { Announcement } from '../announcements/announcements.component';
 import { AnnouncementDialogComponent } from '../announcements/announcement-dialog/announcement-dialog.component';
 import { FacultyInfoService } from 'src/app/_services/faculty-info.service';
 import { StudentInfoService } from 'src/app/_services/student-info.service';
+import { ClassService } from 'src/app/_services/class.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +21,8 @@ export class DashboardComponent implements OnInit {
     private userService: UserService,
     public dialog: MatDialog,
     private facultyInfoService: FacultyInfoService,
-    private studentInfoService: StudentInfoService
+    private studentInfoService: StudentInfoService,
+    private classService: ClassService
   ) {}
 
   todayTime: number;
@@ -31,6 +33,7 @@ export class DashboardComponent implements OnInit {
   name: string;
   facCount: number;
   stuCount: number;
+  classCount: number;
   displayedColumns: string[] = ['title', 'body'];
   break: Boolean = screen.availWidth < 960;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -55,6 +58,15 @@ export class DashboardComponent implements OnInit {
     this.facultyInfoService.getFacultyCount().subscribe({
       next: (data) => {
         this.facCount = data.count;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+
+    this.classService.getClassCount().subscribe({
+      next: (data) => {
+        this.classCount = data.count;
       },
       error: (err) => {
         console.log(err);

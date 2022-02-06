@@ -24,7 +24,7 @@ export class FacultyClassesComponent implements OnInit {
   role: string;
   data: any;
   facId: string;
-  displayedColumns: string[] = ['id', 'subjectName'];
+  displayedColumns: string[] = ['_id', 'subject'];
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -36,13 +36,8 @@ export class FacultyClassesComponent implements OnInit {
     this.getFacClasses();
   }
 
-  ngAfterViewInit() {
-    this.data.sort = this.sort;
-    this.data.paginator = this.paginator;
-  }
-
-  onRowClick(row: ClassDetails) {
-    this.router.navigateByUrl(`classes/details/${row.id}`);
+  onRowClick(row: any) {
+    this.router.navigateByUrl(`classes/details/${row._id}`);
   }
 
   doFilter(event: Event) {
@@ -51,6 +46,17 @@ export class FacultyClassesComponent implements OnInit {
   }
 
   getFacClasses() {
-    this.data = new MatTableDataSource(this.classService.getFacultyClasses());
+    this.classService.getFacultyClasses(this.facId).subscribe({
+      next: (data) => {
+        console.log(data);
+
+        this.data = new MatTableDataSource(data as []);
+        this.data.sort = this.sort;
+        this.data.paginator = this.paginator;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }

@@ -1,0 +1,56 @@
+.profile-wrapper {
+  .inner-wrapper {
+    .action-content {
+      .profile-card {
+        margin-top: 3rem;
+        max-width: 800px;
+      }
+
+      .input-fields {
+        margin: 1.5rem 0;
+        width: 100%;
+      }
+    }
+    .profile-content {
+      .profile-card {
+        max-width: 800px;
+      }
+      .crd-actions {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .profile-inner {
+        display: flex;
+        align-items: center;
+        @media screen and (max-width: 768px) {
+          flex-direction: column;
+        }
+        .profile-img {
+          width: 250px;
+        }
+
+        .profile-details {
+          margin-top: 15px;
+          .name {
+            font-size: 30px;
+            margin: 5px 0 30px 0;
+          }
+          .deets {
+            font-size: 15px;
+            margin: 5px 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+:host {
+  ::ng-deep {
+    .mat-raised-button:first-child {
+      position: relative;
+      right: 48px;
+      bottom: 20px;
+    }
+  }
+}

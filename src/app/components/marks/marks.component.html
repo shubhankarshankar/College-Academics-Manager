@@ -15,10 +15,11 @@
               placeholder="Enter Student Details"
             />
           </mat-form-field> -->
-          <mat-card class="table-card" style="padding: 0">
+          <div class="mat-display-1" *ngIf="!isAnyMarks">No Marks to Show!</div>
+          <mat-card class="table-card" *ngIf="isAnyMarks" style="padding: 0">
             <mat-card-content>
               <table mat-table [dataSource]="data" style="width: 100%">
-                <ng-container matColumnDef="classId">
+                <ng-container matColumnDef="class._id">
                   <th
                     style="color: white; text-align: center"
                     mat-header-cell
@@ -31,10 +32,10 @@
                     style="width: 30%; text-align: center"
                     *matCellDef="let element"
                   >
-                    {{ element.classId }}
+                    {{ element.class._id }}
                   </td>
                 </ng-container>
-                <ng-container matColumnDef="subjectName">
+                <ng-container matColumnDef="class.subject">
                   <th
                     style="color: white; text-align: center"
                     mat-header-cell
@@ -47,10 +48,10 @@
                     style="text-align: center"
                     *matCellDef="let element"
                   >
-                    {{ element.subjectName }}
+                    {{ element.class.subject }}
                   </td>
                 </ng-container>
-                <ng-container matColumnDef="totalMarks">
+                <ng-container matColumnDef="marks">
                   <th
                     style="color: white; text-align: center"
                     mat-header-cell
@@ -63,7 +64,7 @@
                     style="text-align: center"
                     *matCellDef="let element"
                   >
-                    {{ element.totalMarks }}
+                    {{ element.marks }}
                   </td>
                 </ng-container>
 

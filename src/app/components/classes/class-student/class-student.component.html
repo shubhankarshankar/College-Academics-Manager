@@ -1,0 +1,88 @@
+<app-main-nav>
+  <div class="profile-wrapper">
+    <div class="inner-wrapper">
+      <div
+        class="page-header"
+        style="display: flex; justify-content: space-between"
+      >
+        <div class="mat-display-2 comp-header">Student Actions</div>
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="goBack()"
+          style="height: fit-content"
+        >
+          <mat-icon>arrow_back</mat-icon>
+          Go Back
+        </button>
+      </div>
+      <div class="profile-content">
+        <mat-card class="profile-card">
+          <mat-card-content>
+            <div class="profile-inner">
+              <div class="profile-img">
+                <mat-icon style="font-size: 250px" color="primary"
+                  >person</mat-icon
+                >
+              </div>
+              <div class="profile-details">
+                <mat-card-title class="name">
+                  {{ studentDetails?.name }}
+                </mat-card-title>
+
+                <div class="deets">
+                  <strong>ID:</strong> &nbsp; {{ studentDetails?._id }}
+                </div>
+                <div class="deets">
+                  <strong>Phone Number:</strong> &nbsp;
+                  {{ studentDetails?.phone }}
+                </div>
+                <div class="deets">
+                  <strong>Email:</strong> &nbsp; {{ studentDetails?.email }}
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions class="crd-actions" align="end">
+            <button mat-raised-button color="primary">
+              View Latest Assignment Answer
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <div class="action-content">
+        <mat-card class="profile-card">
+          <mat-card-content>
+            <div class="profile-inner">
+              <div class="profile-details">
+                <mat-card-title class="name"> Update Marks </mat-card-title>
+                <mat-card-subtitle
+                  >Previous Marks: {{ studentMarks }}
+                </mat-card-subtitle>
+                <form
+                  (ngSubmit)="onUpdateMarks()"
+                  [formGroup]="updateMarksForm"
+                >
+                  <mat-form-field appearance="outline" class="input-fields">
+                    <mat-label>Marks</mat-label>
+                    <input
+                      type="number"
+                      formControlName="marks"
+                      matInput
+                      placeholder="Enter Updated Marks"
+                    />
+                  </mat-form-field>
+                  <mat-card-actions class="crd-actions" align="end">
+                    <button type="submit" mat-raised-button color="primary">
+                      Update Marks
+                    </button>
+                  </mat-card-actions>
+                </form>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</app-main-nav>

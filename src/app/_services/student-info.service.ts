@@ -1,8 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { students } from '../constants/contants';
-import { StudentDetails } from '../interfaces';
 import { TokenStorageService } from './token-storage.service';
 
 @Injectable({
