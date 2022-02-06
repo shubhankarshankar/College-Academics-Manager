@@ -37,24 +37,21 @@ export class AnnouncementsComponent implements OnInit {
     this.role = this.userService.getCurrentUser().role;
   }
 
-  ngAfterViewInit() {
-    this.data.sort = this.sort;
-    this.data.paginator = this.paginator;
-  }
+  ngAfterViewInit() {}
 
   getAllAnnouncements() {
-    this.data = new MatTableDataSource(
-      this.announcementService.getAllAnnouncements()
-    );
+    this.announcementService.getAllAnnouncements().subscribe({
+      next: (data) => {
+        this.data = new MatTableDataSource(data as []);
+        this.data.sort = this.sort;
+        this.data.paginator = this.paginator;
+      },
+    });
   }
 
-  openAnnouncementDialog(row: Announcement) {
+  openAnnouncementDialog(row: any) {
     const dialogRef = this.dialog.open(AnnouncementDialogComponent, {
       data: row,
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 

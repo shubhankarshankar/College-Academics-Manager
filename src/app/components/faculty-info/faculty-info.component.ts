@@ -39,19 +39,21 @@ export class FacultyInfoComponent implements OnInit {
     this.getAllFaculties();
   }
 
-  ngAfterViewInit() {
-    this.data.sort = this.sort;
-    this.data.paginator = this.paginator;
-  }
-
   getAllFaculties() {
-    this.data = new MatTableDataSource(
-      this.facultyInfoService.getAllFaculties()
-    );
+    this.facultyInfoService.getAllFaculties().subscribe({
+      next: (data) => {
+        this.data = new MatTableDataSource(data as []);
+        this.data.sort = this.sort;
+        this.data.paginator = this.paginator;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
-  onRowClick(row: FacultyData) {
-    this.router.navigateByUrl(`faculty-info/${row.id}`);
+  onRowClick(row: any) {
+    this.router.navigateByUrl(`faculty-info/${row._id}`);
   }
 
   doFilter(event: Event) {

@@ -28,7 +28,7 @@
                 }}</mat-card-title>
 
                 <div class="deets">
-                  <strong>ID:</strong> &nbsp; {{ facultyDetails?.id }}
+                  <strong>ID:</strong> &nbsp; {{ facultyDetails?._id }}
                 </div>
                 <div class="deets">
                   <strong>Phone Number:</strong> &nbsp;
@@ -44,7 +44,9 @@
             </div>
           </mat-card-content>
           <mat-card-actions *ngIf="role === 'Admin'" align="end">
-            <button mat-button color="warn">Delete Faculty</button>
+            <button (click)="deleteFaculty()" mat-button color="warn">
+              Delete Faculty
+            </button>
 
             <button
               mat-raised-button

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/_services/user.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AnnouncementService } from 'src/app/_services/announcement.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-announcement-update',
@@ -14,11 +15,12 @@ export class AnnouncementUpdateComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private userService: UserService,
-    private announcementService: AnnouncementService
+    private announcementService: AnnouncementService,
+    private _snackBar: MatSnackBar
   ) {}
 
   role: string;
-  announcementId: number;
+  announcementId: any;
   originalTitle: string | null;
   originalBody: string;
 
@@ -29,17 +31,16 @@ export class AnnouncementUpdateComponent implements OnInit {
       (rootParams) => (this.announcementId = rootParams['id'])
     );
 
-    this.originalTitle =
-      this.announcementService.getAnnouncementById(this.announcementId)?.[
-        'title'
-      ] || '';
-    this.originalBody =
-      this.announcementService.getAnnouncementById(this.announcementId)?.[
-        'body'
-      ] || '';
+    this.getOriginalAnnouncement(this.announcementId);
+  }
 
-    console.log(this.originalTitle);
-    console.log(this.originalBody);
+  getOriginalAnnouncement(announcementId: any) {
+    this.announcementService.getAnnouncementById(announcementId).subscribe({
+      next: (data) => {
+        this.originalTitle = data.title;
+        this.originalBody = data.body;
+      },
+    });
   }
 
   updateAnnouncementForm = new FormGroup({
@@ -47,9 +48,31 @@ export class AnnouncementUpdateComponent implements OnInit {
     updatedBody: new FormControl(''),
   });
 
-  onCreateAnnouncement() {
-    console.log(this.updateAnnouncementForm.value);
-    this.goBack();
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, { duration: 3000 });
+  }
+
+  onUpdateAnnouncement() {
+    const { updatedTitle, updatedBody } = this.updateAnnouncementForm.value;
+
+    if (this.updateAnnouncementForm.valid) {
+      const updatedInfo = {
+        title: updatedTitle === '' ? this.originalTitle : updatedTitle,
+        body: updatedBody === '' ? this.originalBody : updatedBody,
+      };
+
+      this.announcementService
+        .updateAnnouncementById(this.announcementId, updatedInfo)
+        .subscribe({
+          next: (data) => {
+            this.openSnackBar('Annoucement Updated', 'Dismiss');
+            this.goBack();
+          },
+          error: (err) => {
+            this.openSnackBar('Something Went Wrong', 'Dismiss');
+          },
+        });
+    }
   }
 
   goBack() {

@@ -1,33 +1,41 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { userDetails, users } from '../constants/contants';
 import { UserDetails } from '../interfaces';
+import { TokenStorageService } from './token-storage.service';
+import jwt_decode from 'jwt-decode';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  public user: string;
+  baseUrl = 'http://localhost:3000/api/user/';
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'auth-token': this.tokenStorageService.getToken(),
+    }),
+  };
 
-  getAllDetails = (): UserDetails[] => users;
+  getCurrentUser(): any {
+    const user: { iat: string; loggedInUser: Object } = jwt_decode(
+      this.tokenStorageService.getToken()
+    );
 
-  setCurrentUser(userEmail: string) {
-    window.localStorage.setItem('userEmail', userEmail);
+    return user.loggedInUser;
   }
 
-  getCurrentUser(): UserDetails {
-    let userEmail: string = window.localStorage.getItem('userEmail') || '';
-
-    for (let i = 0; i < this.getAllDetails().length; i++) {
-      if (this.getAllDetails()[i].email === userEmail)
-        return this.getAllDetails()[i];
-    }
-
-    return this.getAllDetails()[<any>userEmail];
+  updateUser(id: any, changes: any): Observable<any> {
+    return this.http.put(this.baseUrl + `${id}`, changes, this.httpOptions);
   }
 
   public checkAuth() {
-    return !!window.localStorage.getItem('isLoggedIn');
+    return !!window.localStorage.getItem('auth-token');
   }
 
-  constructor() {}
+  constructor(
+    private tokenStorageService: TokenStorageService,
+    private http: HttpClient
+  ) {}
 }

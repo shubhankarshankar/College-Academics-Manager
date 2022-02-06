@@ -211,4 +211,13 @@ export const routingComponents = [
   ClassesComponent,
   StudentDetailsComponent,
   StudentDetailsUpdateComponent,
+  AnnouncementAddComponent,
+  AnnouncementUpdateComponent,
+  FacultyInfoAddComponent,
+  StudentInfoAddComponent,
+  AssignmentDetailsComponent,
+  ClassDetailsComponent,
+  FacultyClassesComponent,
+  AssignmentCreateComponent,
+  FacultyDetailsUpdateComponent,
 ];

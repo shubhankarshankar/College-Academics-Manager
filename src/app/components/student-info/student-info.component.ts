@@ -37,22 +37,26 @@ export class StudentInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.role = this.userService.getCurrentUser().role;
+    if (this.role != 'Admin') this.router.navigateByUrl('/');
+
     this.getAllStudents();
   }
 
-  ngAfterViewInit() {
-    this.data.sort = this.sort;
-    this.data.paginator = this.paginator;
-  }
-
   getAllStudents() {
-    this.data = new MatTableDataSource(
-      this.studentInfoService.getAllStudents()
-    );
+    this.studentInfoService.getAllStudents().subscribe({
+      next: (data) => {
+        this.data = new MatTableDataSource(data as []);
+        this.data.sort = this.sort;
+        this.data.paginator = this.paginator;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
-  onRowClick(row: StudentDetails) {
-    this.router.navigateByUrl(`student-info/${row.id}`);
+  onRowClick(row: any) {
+    this.router.navigateByUrl(`student-info/${row._id}`);
   }
 
   doFilter(event: Event) {

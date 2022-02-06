@@ -18,6 +18,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -39,6 +40,7 @@ const MaterialComponents = [
   MatPaginatorModule,
   MatSnackBarModule,
   MatDialogModule,
+  MatTooltipModule,
 ];
 
 @NgModule({

@@ -10,6 +10,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/_services/auth.service';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -34,18 +35,16 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private _snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private tokenStorageService: TokenStorageService
   ) {}
 
   ngOnInit(): void {
-    if (!!window.localStorage.getItem('isLoggedIn'))
+    if (!!window.localStorage.getItem('auth-token'))
       this.router.navigateByUrl('/dashboard');
   }
   matcher = new MyErrorStateMatcher();
   public showPassword: boolean = false;
-
-  enteredEmail: string = '';
-  enteredPass: string = '';
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -65,21 +64,20 @@ export class LoginComponent implements OnInit {
   }
 
   loginSubmit() {
-    console.log(this.loginForm);
-
-    this.enteredEmail = this.loginForm.value.email;
-    this.enteredPass = this.loginForm.value.password;
+    const email = this.loginForm.value.email;
+    const password = this.loginForm.value.password;
 
     if (this.loginForm.valid) {
-      if (this.authService.login(this.enteredEmail, this.enteredPass)) {
-        this.authService.setLogin();
-        this.router.navigateByUrl('/dashboard');
-      } else {
-        this.loginForm.setErrors({
-          incorrectPass: true,
-        });
-        this.openSnackBar('Invalid Credentials', 'Dismiss');
-      }
+      this.authService.login(email, password).subscribe({
+        next: (data) => {
+          this.tokenStorageService.setToken(data.token);
+          this.router.navigateByUrl('/dashboard');
+        },
+        error: () => {
+          this.loginForm.setErrors({ incorrectPass: true });
+          this.openSnackBar('Invalid Credentials', 'Dismiss');
+        },
+      });
     }
   }
 }

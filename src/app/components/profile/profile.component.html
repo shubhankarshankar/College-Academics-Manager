@@ -31,10 +31,9 @@
                   <strong>Gender:</strong> &nbsp; {{ currentUser?.gender }}
                 </div>
                 <div class="deets">
-                  <strong>DoB:</strong> &nbsp;
-                  {{ currentUser?.dob?.getDate() }} /
-                  {{ currentUser?.dob?.getMonth() }} /
-                  {{ currentUser?.dob?.getFullYear() }}
+                  <strong>DoB:</strong> &nbsp; {{ date.getDate() }} /
+                  {{ date.getMonth() + 1 }} /
+                  {{ date.getFullYear() }}
                 </div>
                 <div class="deets">
                   <strong>Address:</strong> &nbsp; {{ currentUser?.address }}

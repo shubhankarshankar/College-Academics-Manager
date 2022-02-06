@@ -1,36 +1,38 @@
 import { Injectable } from '@angular/core';
 import { UserService } from './user.service';
 import { UserDetails } from '../interfaces';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  constructor(private userService: UserService, private http: HttpClient) {}
+
   userDetails: UserDetails[];
 
-  login(enteredEmail: string, enteredPass: string): boolean {
-    this.userDetails = this.userService.getAllDetails();
+  baseUrl: string = 'http://localhost:3000/api/auth/';
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
 
-    for (let i = 0; i < this.userDetails.length; i++) {
-      if (
-        enteredEmail === this.userDetails[i].email &&
-        enteredPass === this.userDetails[i].password
-      ) {
-        this.userService.setCurrentUser(this.userDetails[i].email);
-        return true;
-      }
-    }
-
-    return false;
+  login(email: string, password: string): Observable<any> {
+    return this.http.post(
+      this.baseUrl + 'login',
+      {
+        email,
+        password,
+      },
+      this.httpOptions
+    );
   }
 
-  setLogin() {
-    window.localStorage.setItem('isLoggedIn', 'true');
+  signUp(newUser: Object) {
+    return this.http.post(this.baseUrl + 'register', newUser, this.httpOptions);
   }
 
   rmLogin() {
     window.localStorage.clear();
   }
-
-  constructor(private userService: UserService) {}
 }

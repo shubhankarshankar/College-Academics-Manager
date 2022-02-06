@@ -20,8 +20,6 @@ export class MainNavComponent {
     this.role = this.userService.getCurrentUser()?.role;
     this.facId =
       this.role === 'Faculty' ? this.userService.getCurrentUser()?.cid : null;
-
-    console.log(this.facId);
   }
 
   isHandset$: Observable<boolean> = this.breakpointObserver

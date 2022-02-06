@@ -6,6 +6,8 @@ import { UserService } from 'src/app/_services/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Announcement } from '../announcements/announcements.component';
 import { AnnouncementDialogComponent } from '../announcements/announcement-dialog/announcement-dialog.component';
+import { FacultyInfoService } from 'src/app/_services/faculty-info.service';
+import { StudentInfoService } from 'src/app/_services/student-info.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +18,9 @@ export class DashboardComponent implements OnInit {
   constructor(
     private announcementService: AnnouncementService,
     private userService: UserService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private facultyInfoService: FacultyInfoService,
+    private studentInfoService: StudentInfoService
   ) {}
 
   todayTime: number;
@@ -25,6 +29,8 @@ export class DashboardComponent implements OnInit {
   data: any;
   role: string;
   name: string;
+  facCount: number;
+  stuCount: number;
   displayedColumns: string[] = ['title', 'body'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -32,9 +38,11 @@ export class DashboardComponent implements OnInit {
     this.role = this.userService.getCurrentUser().role;
     this.name = this.userService.getCurrentUser().name;
     this.id = this.userService.getCurrentUser().cid;
-    this.data = new MatTableDataSource(
-      this.announcementService.getAllAnnouncements()
-    );
+    this.announcementService.getAllAnnouncements().subscribe({
+      next: (data) => {
+        this.data = new MatTableDataSource(data as []);
+      },
+    });
     this.todayTime = new Date().getHours();
     this.message =
       this.todayTime < 12
@@ -42,10 +50,24 @@ export class DashboardComponent implements OnInit {
         : this.todayTime < 17
         ? 'Good Afternoon'
         : 'Good Evening';
-  }
 
-  ngAfterViewInit() {
-    this.data.paginator = this.paginator;
+    this.facultyInfoService.getFacultyCount().subscribe({
+      next: (data) => {
+        this.facCount = data.count;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+
+    this.studentInfoService.getStudentCount().subscribe({
+      next: (data) => {
+        this.stuCount = data.count;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   openAnnouncementDialog(row: Announcement) {

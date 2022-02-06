@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  currentUser: UserDetails;
+  currentUser: any;
+  date: Date;
 
   constructor(
     private userService: UserService,
@@ -28,10 +29,11 @@ export class ProfileComponent implements OnInit {
   }
 
   updateProfile() {
-    this.router.navigateByUrl(`profile/update/${this.currentUser.id}`);
+    this.router.navigateByUrl(`profile/update/${this.currentUser.cid}`);
   }
 
   ngOnInit(): void {
     this.currentUser = this.userService.getCurrentUser();
+    this.date = new Date(this.currentUser.dob);
   }
 }

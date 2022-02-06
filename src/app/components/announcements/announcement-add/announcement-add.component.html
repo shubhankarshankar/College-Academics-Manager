@@ -32,6 +32,9 @@
                 placeholder="Enter Title"
                 formControlName="title"
               />
+              <mat-error *ngIf="errorHandling('title', 'required')">
+                You must provide a title.
+              </mat-error>
             </mat-form-field>
             <br />
             <mat-form-field appearance="outline" class="input-fields">

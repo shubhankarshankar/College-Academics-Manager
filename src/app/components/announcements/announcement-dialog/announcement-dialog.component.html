@@ -7,13 +7,20 @@
 <mat-dialog-actions align="end">
   <button mat-button [mat-dialog-close]="true" mat-dialog-close>Close</button>
   <a *ngIf="role === 'Admin'">
-    <button mat-button color="warn" [mat-dialog-close]="true">Delete</button>
+    <button
+      mat-button
+      color="warn"
+      (click)="deleteAnnouncement(data._id)"
+      [mat-dialog-close]="true"
+    >
+      Delete
+    </button>
   </a>
   <button
     mat-raised-button
     color="primary"
     [mat-dialog-close]="true"
-    (click)="onUpdateClick(data.id)"
+    (click)="onUpdateClick(data._id)"
     *ngIf="role === 'Admin'"
   >
     Update

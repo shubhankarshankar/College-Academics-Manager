@@ -17,8 +17,6 @@ export class ClassService {
   getClassById(id: string) {
     for (let i = 0; i < this.getallClasses().length; i++) {
       if (this.getallClasses()[i].id == id) {
-        console.log('yt');
-
         return this.getallClasses()[i];
       }
     }
