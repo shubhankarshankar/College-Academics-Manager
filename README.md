@@ -1,27 +1,26 @@
-# CollegeAcademicsManager
+# KONNECT
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
+A project that connects a college with thier students over a portal. This project was made under the BYTE Intership Training Period as my End-to-End Case Study Project.
 
-## Development server
+The backend for this project can be found [here](https://github.com/shubhankarshankar/Konnect-Backend)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Running the Project
 
-## Code scaffolding
+To run this project, you will have to install the following:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. [node (npm)](https://nodejs.org/en/)
+2. [Angular 6+](https://angular.io/)
+3. [Angular CLI](https://angular.io/cli)
 
-## Build
+Instructions to the run the project in localhost
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+npm i
+ng serve
+```
 
-## Running unit tests
+The project will run on local `http://locahost:4200/` this can be altered by:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+ng serve -o port_number
+```
