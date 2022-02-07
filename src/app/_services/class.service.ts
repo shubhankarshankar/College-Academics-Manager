@@ -31,6 +31,10 @@ export class ClassService {
     return this.http.get(this.baseUrl + `count`, this.httpOptions);
   }
 
+  getClassCountByFaculty(facId: string): Observable<any> {
+    return this.http.get(this.baseUrl + `count/${facId}`, this.httpOptions);
+  }
+
   deleteClass(id: string): Observable<any> {
     return this.http.delete(this.baseUrl + `${id}`, this.httpOptions);
   }

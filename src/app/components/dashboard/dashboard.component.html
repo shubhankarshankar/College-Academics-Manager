@@ -60,7 +60,9 @@
               >New Announcements</mat-card-title
             >
             <mat-card-content style="text-align: center; margin-top: 30px">
-              <span class="mat-display-4 stat-num">3</span>
+              <span class="mat-display-4 stat-num">
+                {{ announcementCount }}
+              </span>
             </mat-card-content>
             <mat-card-actions style="text-align: center">
               <!-- <a routerLink="/attendance">
@@ -68,9 +70,9 @@
                   View Attendance
                 </button>
               </a>  -->
-              <span style="cursor: text" class="mat-button"
+              <!-- <span style="cursor: text" class="mat-button"
                 >All Announcements: 8</span
-              >
+              > -->
             </mat-card-actions>
           </mat-card>
 
@@ -79,7 +81,7 @@
               >Your Classes</mat-card-title
             >
             <mat-card-content style="text-align: center; margin-top: 30px">
-              <span class="mat-display-4 stat-num">9</span>
+              <span class="mat-display-4 stat-num"> {{ facClassCount }} </span>
             </mat-card-content>
             <mat-card-actions style="text-align: center">
               <a routerLink="/classes/{{ id }}">
@@ -90,10 +92,10 @@
 
           <mat-card class="stat-card" *ngIf="role === 'Student'">
             <mat-card-title style="text-align: center"
-              >Assignments Due</mat-card-title
+              >Active Assignments</mat-card-title
             >
             <mat-card-content style="text-align: center; margin-top: 30px">
-              <span class="mat-display-4 stat-num">5</span>
+              <span class="mat-display-4 stat-num">{{ assignmentCount }}</span>
             </mat-card-content>
             <mat-card-actions style="text-align: center">
               <a routerLink="/assignments">

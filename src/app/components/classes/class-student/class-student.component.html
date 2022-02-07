@@ -44,9 +44,16 @@
             </div>
           </mat-card-content>
           <mat-card-actions class="crd-actions" align="end">
-            <button mat-raised-button color="primary">
-              View Latest Assignment Answer
-            </button>
+            <a
+              *ngIf="answerLink != null"
+              href="{{ answerLink }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button mat-raised-button color="primary">
+                View Latest Assignment Answer
+              </button>
+            </a>
           </mat-card-actions>
         </mat-card>
       </div>

@@ -9,6 +9,7 @@ import { AnnouncementDialogComponent } from '../announcements/announcement-dialo
 import { FacultyInfoService } from 'src/app/_services/faculty-info.service';
 import { StudentInfoService } from 'src/app/_services/student-info.service';
 import { ClassService } from 'src/app/_services/class.service';
+import { AssignmentService } from 'src/app/_services/assignment.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,7 +23,8 @@ export class DashboardComponent implements OnInit {
     public dialog: MatDialog,
     private facultyInfoService: FacultyInfoService,
     private studentInfoService: StudentInfoService,
-    private classService: ClassService
+    private classService: ClassService,
+    private assignmentService: AssignmentService
   ) {}
 
   todayTime: number;
@@ -34,6 +36,9 @@ export class DashboardComponent implements OnInit {
   facCount: number;
   stuCount: number;
   classCount: number;
+  facClassCount: number;
+  announcementCount: number;
+  assignmentCount: number;
   displayedColumns: string[] = ['title', 'body'];
   break: Boolean = screen.availWidth < 960;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -67,6 +72,33 @@ export class DashboardComponent implements OnInit {
     this.classService.getClassCount().subscribe({
       next: (data) => {
         this.classCount = data.count;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+
+    this.classService.getClassCountByFaculty(this.id).subscribe({
+      next: (data) => {
+        this.facClassCount = data.count;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+
+    this.assignmentService.getAssignmentCount(this.id).subscribe({
+      next: (data) => {
+        this.assignmentCount = data.count;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+
+    this.announcementService.getAnnouncementCount().subscribe({
+      next: (data) => {
+        this.announcementCount = data.count;
       },
       error: (err) => {
         console.log(err);

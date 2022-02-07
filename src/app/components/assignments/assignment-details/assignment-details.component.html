@@ -19,44 +19,81 @@
             <div class="assignment-inner">
               <div class="assignment-details">
                 <mat-card-title class="name">{{
-                  assignmentDetails?.assignmentTitle
+                  assignmentDetails?.assignmentName
                 }}</mat-card-title>
 
                 <div class="deets">
                   <strong>Subject Name:</strong> &nbsp;
-                  {{ assignmentDetails?.subjectName }}
+                  {{ assignmentDetails?.classId.subject }}
                 </div>
-                <div class="deets">
-                  <strong>Faculty Name:</strong> &nbsp;
-                  {{ assignmentDetails?.facultyName }}
+
+                <div
+                  class="deets"
+                  *ngIf="assignmentDetails?.assignmentDescription"
+                >
+                  <strong>Details:</strong> &nbsp;
+                  {{ assignmentDetails?.assignmentDescription }}
                 </div>
+
                 <div class="deets">
-                  <strong>Due Date:</strong> &nbsp;
-                  {{ assignmentDetails?.dueBy?.getDate() }} /
-                  {{ assignmentDetails?.dueBy?.getMonth() }} /
-                  {{ assignmentDetails?.dueBy?.getFullYear() }}
+                  <strong>Due Date:</strong> &nbsp; {{ date?.getDate() }} /
+                  {{ date?.getMonth() }} /
+                  {{ date?.getFullYear() }}
                 </div>
               </div>
             </div>
           </mat-card-content>
 
           <mat-card-actions align="end">
-            <button mat-button color="accent">View Question</button>
-
-            <input type="file" hidden #file />
-            <button
-              mat-raised-button
-              color="primary"
-              (click)="file.click()"
-              id="update-btn"
+            <a
+              target="__blank"
+              *ngIf="assignmentDetails?.questionUploadPath"
+              href="{{ assignmentDetails?.questionUploadPath }}"
             >
+              <button mat-button color="accent">View Attachment</button>
+            </a>
+
+            <!-- <button mat-raised-button color="primary" id="update-btn">
               <mat-icon>file_upload</mat-icon>
               Upload Answer
-            </button>
+            </button> -->
           </mat-card-actions>
         </mat-card>
 
-        <router-outlet></router-outlet>
+        <div class="assignment-content" style="margin-top: 3rem">
+          <mat-card class="assignment-card">
+            <mat-card-content style="width: 100%">
+              <div class="assignment-inner" style="width: 100%">
+                <div class="assignment-details" style="width: 100%">
+                  <mat-card-title class="name"> Update Answer </mat-card-title>
+                  <mat-card-subtitle> </mat-card-subtitle>
+                  <form
+                    (ngSubmit)="onUpdateAnswer()"
+                    [formGroup]="updateAnswerForm"
+                  >
+                    <mat-form-field
+                      appearance="outline"
+                      style="width: 100%"
+                      class="input-fields"
+                    >
+                      <mat-label>Answer Link</mat-label>
+                      <input
+                        matInput
+                        formControlName="answerLink"
+                        placeholder="Enter Answer Link"
+                      />
+                    </mat-form-field>
+                    <mat-card-actions class="crd-actions" align="end">
+                      <button type="submit" mat-raised-button color="primary">
+                        Update Answer
+                      </button>
+                    </mat-card-actions>
+                  </form>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
       </div>
     </div>
   </div>

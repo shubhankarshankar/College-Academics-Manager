@@ -37,6 +37,10 @@ export class AnnouncementService {
     return this.http.delete(this.baseUrl + `${id}`, this.httpOptions);
   }
 
+  getAnnouncementCount(): Observable<any> {
+    return this.http.get(this.baseUrl + 'count', this.httpOptions);
+  }
+
   constructor(
     private http: HttpClient,
     private tokenStorageService: TokenStorageService

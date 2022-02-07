@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AssignmentService } from 'src/app/_services/assignment.service';
 import { MarksService } from 'src/app/_services/marks.service';
 import { StudentInfoService } from 'src/app/_services/student-info.service';
 import { UserService } from 'src/app/_services/user.service';
@@ -18,7 +19,8 @@ export class ClassStudentComponent implements OnInit {
     private marksService: MarksService,
     private router: Router,
     private _snackBar: MatSnackBar,
-    private userService: UserService
+    private userService: UserService,
+    private assignmentService: AssignmentService
   ) {}
 
   classId: string;
@@ -26,6 +28,7 @@ export class ClassStudentComponent implements OnInit {
   studentDetails: any;
   studentMarks: any;
   role: string;
+  answerLink: string | null;
 
   updateMarksForm = new FormGroup({
     marks: new FormControl(''),
@@ -42,10 +45,24 @@ export class ClassStudentComponent implements OnInit {
 
     this.getStudentDetails();
     this.getStudentMarks();
+    this.getSubmissionDetails();
   }
 
   goBack() {
     this.router.navigateByUrl(`classes/details/${this.classId}`);
+  }
+
+  getSubmissionDetails() {
+    this.assignmentService
+      .getSubmission(this.classId, this.studentId)
+      .subscribe({
+        next: (data) => {
+          this.answerLink = data.answerUploadPath;
+        },
+        error: (err) => {
+          this.answerLink = null;
+        },
+      });
   }
 
   getStudentDetails() {
@@ -65,7 +82,6 @@ export class ClassStudentComponent implements OnInit {
 
   onUpdateMarks() {
     const { marks } = this.updateMarksForm.value;
-    console.log(marks);
 
     if (!marks) {
       this.openSnackBar('Please Enter Valid Marks', 'Dismiss');

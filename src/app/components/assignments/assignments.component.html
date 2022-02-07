@@ -18,7 +18,7 @@
           <mat-card class="table-card" style="padding: 0">
             <mat-card-content>
               <table mat-table [dataSource]="data" style="width: 100%">
-                <ng-container matColumnDef="classId">
+                <ng-container matColumnDef="classId._id">
                   <th
                     style="color: white; text-align: center"
                     mat-header-cell
@@ -31,10 +31,10 @@
                     style="width: 30%; text-align: center"
                     *matCellDef="let element"
                   >
-                    {{ element.classId }}
+                    {{ element.classId._id }}
                   </td>
                 </ng-container>
-                <ng-container matColumnDef="subjectName">
+                <ng-container matColumnDef="classId.subject">
                   <th
                     style="color: white; text-align: center"
                     mat-header-cell
@@ -47,10 +47,10 @@
                     style="text-align: center"
                     *matCellDef="let element"
                   >
-                    {{ element.subjectName }}
+                    {{ element.classId.subject }}
                   </td>
                 </ng-container>
-                <ng-container matColumnDef="assignmentTitle">
+                <ng-container matColumnDef="assignmentName">
                   <th
                     style="color: white; text-align: center"
                     mat-header-cell
@@ -63,26 +63,11 @@
                     style="text-align: center"
                     *matCellDef="let element"
                   >
-                    {{ element.assignmentTitle }}
+                    {{ element.assignmentName }}
                   </td>
                 </ng-container>
-                <ng-container matColumnDef="facultyName">
-                  <th
-                    style="color: white; text-align: center"
-                    mat-header-cell
-                    *matHeaderCellDef
-                  >
-                    FACULTY NAME
-                  </th>
-                  <td
-                    mat-cell
-                    style="text-align: center"
-                    *matCellDef="let element"
-                  >
-                    {{ element.facultyName }}
-                  </td>
-                </ng-container>
-                <ng-container matColumnDef="dueBy">
+
+                <!-- <ng-container matColumnDef="dueDate">
                   <th
                     style="color: white; text-align: center"
                     mat-header-cell
@@ -95,11 +80,11 @@
                     style="text-align: center"
                     *matCellDef="let element"
                   >
-                    {{ element.dueBy.getDate() }} /
-                    {{ element.dueBy.getMonth() }} /
-                    {{ element.dueBy.getFullYear() }}
+                    {{ element.dueDate.getDate() }} /
+                    {{ element.dueDate.getMonth() }} /
+                    {{ element.dueDate.getFullYear() }}
                   </td>
-                </ng-container>
+                </ng-container> -->
 
                 <tr
                   mat-header-row

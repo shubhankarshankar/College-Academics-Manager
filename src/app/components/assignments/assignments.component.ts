@@ -19,34 +19,41 @@ export class AssignmentsComponent implements OnInit {
 
   role: string;
   data: any;
+  stuId: string;
+  isAnyAssignment = false;
   displayedColumns: string[] = [
-    'classId',
-    'subjectName',
-    'assignmentTitle',
-    'facultyName',
-    'dueBy',
+    'classId._id',
+    'classId.subject',
+    'assignmentName',
   ];
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {
     this.role = this.userService.getCurrentUser().role;
+    this.stuId = this.userService.getCurrentUser().cid;
+
     if (this.role != 'Student') this.router.navigateByUrl('/');
     this.getStudentAssignments();
   }
 
-  ngAfterViewInit() {
-    this.data.paginator = this.paginator;
-  }
-
   getStudentAssignments() {
-    this.data = new MatTableDataSource(
-      this.assingmmentService.getStudentAssignments()
-    );
+    this.assingmmentService.getStudentAssignments(this.stuId).subscribe({
+      next: (data) => {
+        if (data.assignments.length) this.isAnyAssignment = true;
+
+        this.data = new MatTableDataSource(data.assignments as []);
+
+        this.data.paginator = this.paginator;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   onAssignmentClick(row: any) {
-    console.log('gg');
+    console.log(row);
 
-    this.router.navigateByUrl(`/assignments/${row.id}`);
+    this.router.navigateByUrl(`/assignments/${row._id}`);
   }
 }
