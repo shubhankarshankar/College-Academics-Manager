@@ -1,4 +1,6 @@
-![main-logo](https://user-images.githubusercontent.com/47575172/152773227-872238a9-5afe-4dee-a922-a6cb932f16c7.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/47575172/152773227-872238a9-5afe-4dee-a922-a6cb932f16c7.png" alt="Sublime's custom image"/>
+</p>
 
 Konnect is a Single Page Application built on Angular that connects a college with thier students over a portal. Konnect makes administration and running of college a breeze for college admins as well as faculties managing thier students. This project was made under the BYTE Intership Training Period as my End-to-End Case Study Project.
 
