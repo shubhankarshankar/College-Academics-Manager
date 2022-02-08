@@ -25,11 +25,12 @@ Using this portal, one can enjoy the following features:
 ## Role Management
 The website offers 3 role, viz. Admin, Faculty and Student. Following are the features provided to each:
 
-- Admin
-  - Manage own profile
-  - Manage all Faculty or Student information
-  - Manage all Announcements
-  - Manage Classrooms with Faculty and Students
+### Admin
+
+1. Manage own profile
+2. Manage all Faculty or Student information
+3. Manage all Announcements
+4. Manage Classrooms with Faculty and Students
 
 ### Faculty
 
