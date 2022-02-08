@@ -21,6 +21,35 @@ Using this portal, one can enjoy the following features:
 - Contact Support - Get in touch with help whenever you need it!
 
 <br />
+ 
+## Role Management
+The website offers 3 role, viz. Admin, Faculty and Student. Following are the features provided to each:
+
+- Admin
+  - Manage own profile
+  - Manage all Faculty or Student information
+  - Manage all Announcements
+  - Manage Classrooms with Faculty and Students
+
+### Faculty
+
+1. Manage own profile
+1. View all announcements
+1. View other faculty information
+1. Manage own classrooms
+1. Upload Assignment questions for thier classes
+1. View students' answers
+1. Upload and Update Marks for the students
+
+### Student
+
+1. Manage own profile
+1. View all announcements
+1. View all faculty information
+1. View assigned assignments
+1. View marks scored in various subjects
+
+<br />
 
 ## Running the Project
 
@@ -39,11 +68,7 @@ npm i
 ng serve
 ```
 
-The project will run on local `http://locahost:4200/` this can be altered by:
-
-```
-ng serve -o port_number
-```
+The project will run on `http://locahost:4200/` by deault.
 
 <br />
 
