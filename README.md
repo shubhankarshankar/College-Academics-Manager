@@ -7,7 +7,6 @@ Konnect is a Single Page Application built on Angular that connects a college wi
 The backend for this project can be found [here](https://github.com/shubhankarshankar/Konnect-Backend)
 
 <br />
-<br />
 
 ## Features
 
@@ -21,7 +20,6 @@ Using this portal, one can enjoy the following features:
 - Classrooms - A page for the faculty to summarise all thier classes at one place to make managment much simpler.
 - Contact Support - Get in touch with help whenever you need it!
 
-<br />
 <br />
 
 ## Running the Project
@@ -47,7 +45,6 @@ The project will run on local `http://locahost:4200/` this can be altered by:
 ng serve -o port_number
 ```
 
-<br />
 <br />
 
 ## Technologies Used
