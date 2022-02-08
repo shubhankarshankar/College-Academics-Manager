@@ -2,7 +2,7 @@
   <img src="https://user-images.githubusercontent.com/47575172/152773227-872238a9-5afe-4dee-a922-a6cb932f16c7.png" alt="Sublime's custom image"/>
 </p>
 
-Konnect is a Single Page Application built on Angular that connects a college with thier students over a portal. Konnect makes administration and running of college a breeze for college admins as well as faculties managing thier students. This project was made under the BYTE Intership Training Period as my End-to-End Case Study Project.
+Konnect is a Single Page Application built on Angular that connects a college with their students over a portal. Konnect makes administration and running of college a breeze for college admins as well as faculties managing their students. This project was made under the BYTE Intership Training Period as my End-to-End Case Study Project.
 
 The backend for this project can be found [here](https://github.com/shubhankarshankar/Konnect-Backend)
 
@@ -17,7 +17,7 @@ Using this portal, one can enjoy the following features:
 - Announcements - Stay up-to-date with all the recent happenings in your college with announcements.
 - Faculty Information - Enquire about any faculty you like and you'll be in touch with them in no time
 - Student Info - The database stores all the information about their students neccessary for the college.
-- Classrooms - A page for the faculty to summarise all thier classes at one place to make managment much simpler.
+- Classrooms - A page for the faculty to summarise all their classes at one place to make managment much simpler.
 - Contact Support - Get in touch with help whenever you need it!
 
 <br />
@@ -38,7 +38,7 @@ The website offers 3 role, viz. Admin, Faculty and Student. Following are the fe
 1. View all announcements
 1. View other faculty information
 1. Manage own classrooms
-1. Upload Assignment questions for thier classes
+1. Upload Assignment questions for their classes
 1. View students' answers
 1. Upload and Update Marks for the students
 
